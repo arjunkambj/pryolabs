@@ -89,6 +89,10 @@
   .terminal-glow-cyan {
     text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
   }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
 
   /* Teal accent color */
   .text-teal-400 {
@@ -158,10 +162,32 @@
 /* Custom border utilities */
 @layer utilities {
   .border-terminal {
-    border-color: #00ff00;
+    border-color: #00ff41;
   }
 
   .dark .border-terminal {
-    border-color: #00ff00;
+    border-color: #00ff41;
+  }
+  
+  /* Neon glow effects */
+  .neon-glow-green {
+    box-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 40px #00ff41;
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+  }
+  
+  .neon-text-green {
+    text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41;
+  }
+  
+  .neon-text-cyan {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  
+  /* Radial gradient */
+  .bg-radial-gradient {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.5) 50%, black 100%);
   }
 }

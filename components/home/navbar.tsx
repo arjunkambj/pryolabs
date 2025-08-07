@@ -13,7 +13,7 @@ export function Navbar() {
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
+    href: string
   ) => {
     e.preventDefault();
     const target = document.querySelector(href);
@@ -32,7 +32,7 @@ export function Navbar() {
             className="flex items-center gap-1 sm:gap-2 font-mono text-sm sm:text-base"
             href="/"
           >
-            <span className="text-primary font-bold">pyro@labs</span>
+            <span className="text-primary font-bold">Pyro@Labs</span>
             <span className="text-secondary hidden sm:inline">:</span>
             <span className="text-xs text-primary/50 hidden sm:inline">
               v1.00
@@ -50,7 +50,7 @@ export function Navbar() {
               >
                 <span className="text-primary/50 transition-colors">$ </span>
                 <span className="group-hover:text-teal-400 transition-all duration-300">
-                  {item.label.toLowerCase()}
+                  {item.label}
                 </span>
               </Link>
             ))}

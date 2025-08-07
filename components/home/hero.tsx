@@ -90,7 +90,7 @@ export function Hero() {
     setTimeout(() => setIsLoaded(true), 100);
 
     // Animate counters
-    const mvpAnimation = animate(mvpCount, 3, { duration: 2, delay: 2.5 });
+    const mvpAnimation = animate(mvpCount, 24, { duration: 2, delay: 2.5 });
     const successAnimation = animate(successRate, 100, {
       duration: 2,
       delay: 2.7,
@@ -108,7 +108,7 @@ export function Hero() {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
         await new Promise((resolve) =>
-          setTimeout(resolve, terminalCommands[i].delay),
+          setTimeout(resolve, terminalCommands[i].delay)
         );
         setCurrentLine(i);
 
@@ -310,7 +310,7 @@ export function Hero() {
               href="#get-started"
               size="md"
             >
-              Book Now • 2 Slots Left
+              Book a Call
             </Button>
             <Button
               as={Link}

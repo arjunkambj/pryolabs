@@ -121,7 +121,7 @@ export function Testimonials() {
               <span className="text-teal-400">100%</span> approval rate
             </div>
             <div className="text-sm text-primary/50 mt-1">
-              3 successful deployments
+              24 successful deployments
             </div>
           </div>
         </motion.div>

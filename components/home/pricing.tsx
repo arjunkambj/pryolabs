@@ -216,7 +216,7 @@ export function Pricing() {
             </div>
             <div className="grid grid-cols-3 gap-8 text-base">
               <div>
-                <span className="text-success">3</span>
+                <span className="text-success">24</span>
                 <span className="text-primary/50"> MVPs</span>
               </div>
               <div>

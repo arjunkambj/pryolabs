@@ -20,9 +20,9 @@ export function Footer() {
             <div className="text-foreground/70 text-sm space-y-2">
               <div>Pyro Labs - Ship Fast. Ship Right.</div>
               <div>Building MVPs in 21 days since 2020</div>
-              <div>500+ successful products delivered</div>
+              <div>24 successful products delivered</div>
               <div className="text-primary">
-                <span className="text-teal-400">96%</span> client satisfaction
+                <span className="text-teal-400">100%</span> client satisfaction
                 rate
               </div>
             </div>

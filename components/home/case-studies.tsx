@@ -158,7 +158,7 @@ export function CaseStudies() {
           <div className="bg-background/90 border border-primary/30 rounded-sm p-8 font-mono shadow-[0_0_20px_rgba(0,255,0,0.1)]">
             <div className="grid grid-cols-3 gap-8">
               {[
-                { label: "MVPs Delivered", value: "3" },
+                { label: "MVPs Delivered", value: "24" },
                 { label: "Avg. Time to Market", value: "20 days" },
                 { label: "Success Rate", value: "100%" },
               ].map((stat) => (

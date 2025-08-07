@@ -52,27 +52,31 @@ export function Testimonials() {
           <div className="font-mono text-base text-primary/50 mb-4">
             $ git log --grep=&quot;review&quot; --pretty=format
           </div>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            CODE REVIEWS FROM FOUNDERS
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
+            <span className="hidden sm:inline">CODE REVIEWS FROM FOUNDERS</span>
+            <span className="sm:hidden">FOUNDER REVIEWS</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
         </motion.div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto px-4 sm:px-0 overflow-hidden">
           {reviews.map((review, index) => (
-            <motion.div
+            <div
               key={review.author}
-              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 sm:hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 max-w-full animate-fadeIn"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-3 pb-3 border-b border-primary/20">
@@ -104,7 +108,7 @@ export function Testimonials() {
                 <span>{review.files}</span>
                 <span className="text-success">{review.changes}</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -121,7 +125,7 @@ export function Testimonials() {
               <span className="text-teal-400">100%</span> approval rate
             </div>
             <div className="text-sm text-primary/50 mt-1">
-              24 successful deployments
+              3 successful deployments
             </div>
           </div>
         </motion.div>

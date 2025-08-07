@@ -73,14 +73,21 @@ export function FAQ() {
           <div className="font-mono text-base text-primary/50 mb-4">
             $ man pyro | grep -E &quot;faq|help&quot;
           </div>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            FREQUENTLY ASKED QUESTIONS
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
+            <span className="hidden sm:inline">FREQUENTLY ASKED QUESTIONS</span>
+            <span className="sm:hidden">FAQ</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
           <p className="font-mono text-base text-primary/70 mt-4">
             Everything you need to know about our service

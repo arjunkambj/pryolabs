@@ -56,14 +56,20 @@ export function CaseStudies() {
             <div className="font-mono text-base text-primary/50 mb-4">
               $ ls -la /projects/delivered/*.mvp
             </div>
-            <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-              ═══════════════════════════════════════
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+              <span className="hidden sm:inline">
+                ═══════════════════════════════════════
+              </span>
+              <span className="sm:hidden">═══════════════</span>
             </h2>
-            <h2 className="text-4xl font-bold tracking-tight font-mono text-primary mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight font-mono text-primary mb-4">
               DELIVERED MVPs
             </h2>
-            <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-              ═══════════════════════════════════════
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+              <span className="hidden sm:inline">
+                ═══════════════════════════════════════
+              </span>
+              <span className="sm:hidden">═══════════════</span>
             </h2>
             <p className="mt-4 text-lg text-foreground/60 font-mono">
               Real products we&apos;ve built that are now thriving businesses

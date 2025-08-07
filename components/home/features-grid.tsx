@@ -2,60 +2,72 @@
 
 import { motion } from "framer-motion";
 
-const features = [
+const workingProcess = [
   {
-    title: "design.config",
+    step: "01_requirements.md",
+    title: "Requirements Gathering",
     items: [
-      "tool: 'Figma'",
-      "responsive: true",
-      "pages: 10-15",
-      "iterations: unlimited",
+      "→ Video call consultation",
+      "→ Understand your vision",
+      "→ Define success metrics",
+      "→ Create project roadmap",
     ],
+    time: "Day 1-2",
   },
   {
-    title: "frontend.yml",
+    step: "02_design.fig",
+    title: "Figma Design",
     items: [
-      "framework: Next.js",
-      "styling: TailwindCSS",
-      "components: React",
-      "typescript: enabled",
+      "→ Professional UI mockups",
+      "→ Mobile-responsive layouts",
+      "→ Brand color integration",
+      "→ Unlimited revisions",
     ],
+    time: "Day 3-5",
   },
   {
-    title: "backend.json",
+    step: "03_prototype.demo",
+    title: "Working Prototype",
     items: [
-      "database: Supabase/Convex",
-      "api: REST/GraphQL",
-      "realtime: WebSockets",
-      "cloud: Serverless",
+      "→ Clickable demo version",
+      "→ Core features working",
+      "→ Real user testing",
+      "→ Feedback integration",
     ],
+    time: "Day 6-10",
   },
   {
-    title: "auth.lock",
+    step: "04_development.app",
+    title: "Full Development",
     items: [
-      "provider: Clerk",
-      "oauth: Google/GitHub",
-      "2fa: supported",
-      "rbac: configured",
+      "→ Frontend + Backend code",
+      "→ Database setup",
+      "→ API integrations",
+      "→ Quality assurance",
     ],
+    time: "Day 11-16",
   },
   {
-    title: "payment.sh",
+    step: "05_payment.stripe",
+    title: "Payment Integration",
     items: [
-      "gateway: Stripe",
-      "subscriptions: yes",
-      "webhooks: automated",
-      "invoices: generated",
+      "→ Stripe/PayPal setup",
+      "→ Subscription handling",
+      "→ Invoice generation",
+      "→ Secure transactions",
     ],
+    time: "Day 17-18",
   },
   {
-    title: "deploy.config",
+    step: "06_deploy.live",
+    title: "Launch & Deploy",
     items: [
-      "hosting: Vercel",
-      "ci_cd: automated",
-      "monitoring: included",
-      "ssl: enforced",
+      "→ Cloud hosting setup",
+      "→ Domain configuration",
+      "→ SSL security",
+      "→ Go live! 🚀",
     ],
+    time: "Day 19-21",
   },
 ];
 
@@ -74,42 +86,52 @@ export function FeaturesGrid() {
           whileInView={{ opacity: 1 }}
         >
           <div className="font-mono text-base text-primary/50 mb-4">
-            $ cat /pyro/features/* | head -50
+            $ cat /pyro/process/* | head -50
           </div>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            SYSTEM FEATURES
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
+            WORKING PROCESS
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
           <p className="font-mono text-base text-primary/70 mt-4">
-            Our proven tech stack for building your MVP
+            Simple 6-step process to launch your product
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileInView={{ opacity: 1, y: 0 }}
+        {/* Process Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-hidden">
+          {workingProcess.map((process, index) => (
+            <div
+              key={process.step}
+              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 sm:hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 max-w-full animate-fadeIn"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              {/* File header */}
+              {/* Step header */}
               <div className="mb-3 pb-2 border-b border-primary/30">
-                <span className="text-primary">~/stack/</span>
-                <span className="text-teal-400 font-bold">{feature.title}</span>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-teal-400 font-bold text-xs">
+                    {process.step}
+                  </span>
+                  <span className="text-primary/50 text-xs">
+                    {process.time}
+                  </span>
+                </div>
+                <div className="text-primary font-bold">{process.title}</div>
               </div>
 
-              {/* File content */}
+              {/* Process content */}
               <div className="space-y-1">
-                {feature.items.map((item, i) => (
+                {process.items.map((item, i) => (
                   <div key={i} className="flex">
                     <span className="text-primary/30 mr-2">
                       {String(i + 1).padStart(2, "0")}
@@ -119,11 +141,11 @@ export function FeaturesGrid() {
                 ))}
               </div>
 
-              {/* File footer */}
+              {/* Step footer */}
               <div className="mt-3 pt-2 border-t border-primary/30 text-sm text-primary/30">
-                :wq [saved]
+                [completed] ✓
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -134,9 +156,11 @@ export function FeaturesGrid() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="text-primary">[INFO] Battle-tested tech stack</div>
-          <div>[INFO] Everything configured and ready</div>
-          <div>[INFO] Full deployment in 21 days</div>
+          <div className="text-primary">
+            [INFO] No technical knowledge needed
+          </div>
+          <div>[INFO] You focus on business, we handle the tech</div>
+          <div>[INFO] Full product delivered in 21 days</div>
         </motion.div>
       </div>
     </section>

@@ -10,7 +10,7 @@ const mvpPackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  PRICE: $5,999 (one-time)                             │",
+  "│  <span class='text-2xl font-bold'>PRICE: $5,999</span> (one-time)                       │",
   "│  DELIVERY: 21 days                                     │",
   "│  GUARANTEE: 100% money-back                           │",
   "│                                                         │",
@@ -23,9 +23,8 @@ const mvpPackage = [
   "│  [✓] Responsive Frontend Development                   │",
   "│  [✓] Backend API & Database                           │",
   "│  [✓] Authentication & User Management                  │",
-  "│  [✓] Payment Integration (Stripe)                     │",
+  "│  [✓] Payment Integration                              │",
   "│  [✓] Cloud Deployment & Hosting                       │",
-  "│  [✓] CI/CD Pipeline Setup                             │",
   "│  [✓] Analytics & Monitoring                           │",
   "│  [✓] Documentation & Code Handover                    │",
   "│  [✓] 1 Week Post-Launch Support                       │",
@@ -41,7 +40,7 @@ const enterprisePackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  PRICE: Custom Quote                                   │",
+  "│  <span class='text-2xl font-bold'>PRICE: Custom Quote</span>                             │",
   "│  DELIVERY: Flexible timeline                           │",
   "│  GUARANTEE: SLA-backed delivery                       │",
   "│                                                         │",
@@ -52,14 +51,12 @@ const enterprisePackage = [
   "│  [✓] Extended Development (30-90 days)                 │",
   "│  [✓] Multiple Product Modules                         │",
   "│  [✓] Advanced Integrations                            │",
-  "│  [✓] Custom Infrastructure Setup                      │",
   "│  [✓] Team Training & Handover                         │",
-  "│  [✓] Priority Support (3 months)                      │",
+  "│  [✓] Priority Support                                 │",
   "│  [✓] Quarterly Maintenance Updates                     │",
   "│  [✓] Dedicated Project Manager                        │",
   "│  [✓] Custom SLA Agreement                             │",
   "│  [✓] White-label Options                              │",
-  "│  [✓] Compliance & Security Audit                      │",
   "│  [✓] Performance Optimization                         │",
   "│                                                         │",
   "└─────────────────────────────────────────────────────────┘",
@@ -79,14 +76,21 @@ export function Pricing() {
           <div className="font-mono text-base text-primary/50 mb-4">
             $ cat /etc/pricing.conf
           </div>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            TRANSPARENT PRICING
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
+            <span className="hidden sm:inline">TRANSPARENT PRICING</span>
+            <span className="sm:hidden">PRICING</span>
           </h2>
-          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
-            ═══════════════════════════════════════
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
+            <span className="hidden sm:inline">
+              ═══════════════════════════════════════
+            </span>
+            <span className="sm:hidden">═══════════════</span>
           </h2>
           <p className="font-mono text-base text-primary/70 mt-4">
             Choose the package that fits your needs
@@ -94,14 +98,14 @@ export function Pricing() {
         </motion.div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-0 overflow-x-auto">
           {/* MVP Package */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
+            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-auto">
               {mvpPackage.map((line, i) => (
                 <motion.div
                   key={i}
@@ -143,7 +147,7 @@ export function Pricing() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
+            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-auto">
               {enterprisePackage.map((line, i) => (
                 <motion.div
                   key={i}

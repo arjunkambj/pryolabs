@@ -58,7 +58,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-background/30 border-y border-primary/20" id="faq">
+    <section
+      className="py-20 bg-background/30 border-y border-primary/20"
+      id="faq"
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -85,7 +88,7 @@ export function FAQ() {
         </motion.div>
 
         {/* FAQ List */}
-        <div className="border border-primary/30 bg-background/50 p-6 font-mono">
+        <div className="border border-primary/30 bg-background/50 p-4 sm:p-6 font-mono">
           <div className="mb-4 text-sm text-primary/50">
             PYRO LABS FAQ v2.0.0
             <br />
@@ -105,13 +108,17 @@ export function FAQ() {
                 className="w-full text-left"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <div className="flex items-center gap-2 py-2 hover:bg-primary/5 transition-colors duration-300 px-2 -mx-2">
+                <div className="flex items-center gap-2 py-3 sm:py-2 hover:bg-primary/5 transition-colors duration-300 px-2 -mx-2 min-h-[44px]">
                   <span className="text-primary">
                     {openIndex === index ? "▼" : "▶"}
                   </span>
-                  <span className="text-teal-400 text-base">{faq.command}</span>
-                  <span className="text-primary/50 text-base">--</span>
-                  <span className="text-foreground/80 text-base">
+                  <span className="text-teal-400 text-sm sm:text-base">
+                    {faq.command}
+                  </span>
+                  <span className="text-primary/50 text-sm sm:text-base hidden sm:inline">
+                    --
+                  </span>
+                  <span className="text-foreground/80 text-sm sm:text-base">
                     {faq.question}
                   </span>
                 </div>

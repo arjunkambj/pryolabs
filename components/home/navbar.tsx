@@ -12,16 +12,21 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary bg-background/90 backdrop-blur">
-      <div className="max-w-7xl mx-auto px-6">
+    <nav className="md:fixed md:top-0 md:left-0 md:right-0 z-50 border-b border-primary bg-background/90 backdrop-blur">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link className="flex items-center gap-2 font-mono" href="/">
+          <Link
+            className="flex items-center gap-1 sm:gap-2 font-mono text-sm sm:text-base"
+            href="/"
+          >
             <span className="text-primary font-bold">labs@Pyro</span>
-            <span className="text-secondary">:</span>
-            <span className="text-success">~</span>
+            <span className="text-secondary hidden sm:inline">:</span>
+            <span className="text-success hidden sm:inline">~</span>
             <span className="text-primary">$</span>
-            <span className="text-xs text-primary/50 ml-2">v2.0.0</span>
+            <span className="text-xs text-primary/50 ml-1 sm:ml-2 hidden sm:inline">
+              v2.0.0
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,7 +47,7 @@ export function Navbar() {
 
           {/* CTA */}
           <Link
-            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 uppercase font-bold"
+            className="font-mono text-xs sm:text-sm bg-primary text-background px-3 sm:px-4 py-2 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 uppercase font-bold"
             href="#get-started"
           >
             $ CONTACT_

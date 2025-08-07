@@ -37,7 +37,10 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-background/30 border-y border-primary/20" id="testimonials">
+    <section
+      className="py-20 bg-background/30 border-y border-primary/20"
+      id="testimonials"
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -61,11 +64,11 @@ export function Testimonials() {
         </motion.div>
 
         {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto px-4 sm:px-0">
           {reviews.map((review, index) => (
             <motion.div
               key={review.author}
-              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
+              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
@@ -107,7 +110,7 @@ export function Testimonials() {
 
         {/* Bottom Stats */}
         <motion.div
-          className="mt-16 text-center font-mono"
+          className="mt-8 sm:mt-12 md:mt-16 text-center font-mono px-4 sm:px-0"
           initial={{ opacity: 0 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
@@ -115,10 +118,10 @@ export function Testimonials() {
           <div className="inline-block border border-primary/30 bg-background/50 px-6 py-3 shadow-[0_0_15px_rgba(0,255,0,0.1)]">
             <div className="text-base text-primary">
               <span className="text-teal-400">✓</span> All checks passed •{" "}
-              <span className="text-teal-400">96%</span> approval rate
+              <span className="text-teal-400">100%</span> approval rate
             </div>
             <div className="text-sm text-primary/50 mt-1">
-              500+ successful deployments
+              3 successful deployments
             </div>
           </div>
         </motion.div>

@@ -21,7 +21,10 @@ export function Footer() {
               <div>Pyro Labs - Ship Fast. Ship Right.</div>
               <div>Building MVPs in 21 days since 2020</div>
               <div>500+ successful products delivered</div>
-              <div className="text-primary"><span className="text-teal-400">96%</span> client satisfaction rate</div>
+              <div className="text-primary">
+                <span className="text-teal-400">96%</span> client satisfaction
+                rate
+              </div>
             </div>
             <div className="mt-4 flex gap-4">
               <a

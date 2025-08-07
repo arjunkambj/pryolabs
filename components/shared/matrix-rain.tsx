@@ -7,9 +7,11 @@ export function MatrixRain() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
     if (!ctx) return;
 
     canvas.width = window.innerWidth;
@@ -23,6 +25,7 @@ export function MatrixRain() {
     const columns = canvas.width / fontSize;
 
     const drops: number[] = [];
+
     for (let x = 0; x < columns; x++) {
       drops[x] = Math.floor(Math.random() * -100);
     }
@@ -31,7 +34,7 @@ export function MatrixRain() {
       if (!ctx || !canvas) return;
 
       // Black background with opacity for trail effect
-      ctx.fillStyle = "rgba(10, 14, 10, 0.08)";
+      ctx.fillStyle = "rgba(5, 7, 5, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = "#00ff00";
@@ -43,7 +46,8 @@ export function MatrixRain() {
 
         // Gradient effect - characters fade as they fall
         const opacity = Math.max(0, 1 - (drops[i] * fontSize) / canvas.height);
-        ctx.fillStyle = `rgba(0, 255, 0, ${opacity * 0.15})`;
+
+        ctx.fillStyle = `rgba(0, 255, 0, ${opacity * 0.08})`;
 
         // Subtle glow effect
         ctx.shadowBlur = 2;

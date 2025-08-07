@@ -72,8 +72,8 @@ export function CaseStudies() {
         </div>
 
         {/* Case Studies Grid */}
-        <div className="mx-auto mt-16 max-w-6xl">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="mx-auto mt-8 sm:mt-12 md:mt-16 max-w-6xl px-4 sm:px-0">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={study.name}
@@ -84,29 +84,37 @@ export function CaseStudies() {
               >
                 <Card className="group h-full overflow-hidden border border-primary/30 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 rounded-sm">
                   {/* Terminal Header */}
-                  <div className="relative h-48 bg-background border-b border-primary/30 p-4 font-mono text-sm">
+                  <div className="relative h-40 sm:h-48 bg-background border-b border-primary/30 p-3 sm:p-4 font-mono text-xs sm:text-sm">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-2 h-2 rounded-full bg-danger/60" />
                       <span className="w-2 h-2 rounded-full bg-warning/60" />
                       <span className="w-2 h-2 rounded-full bg-success/60" />
-                      <span className="ml-2 text-primary/50 text-xs">{study.name.toLowerCase()}.sh</span>
+                      <span className="ml-2 text-primary/50 text-xs">
+                        {study.name.toLowerCase()}.sh
+                      </span>
                     </div>
-                    <div className="text-primary/50 mb-2">$ cat project.info</div>
+                    <div className="text-primary/50 mb-2">
+                      $ cat project.info
+                    </div>
                     <div className="text-teal-400">[{study.category}]</div>
                     <div className="text-primary mt-2">
-                      <span className="text-success">Status:</span> <span className="text-primary">DEPLOYED</span>
+                      <span className="text-success">Status:</span>{" "}
+                      <span className="text-primary">DEPLOYED</span>
                     </div>
                     <div className="text-primary/50 mt-1">
-                      <span className="text-success">Built in:</span> <span className="text-primary">{study.metrics.time}</span>
+                      <span className="text-success">Built in:</span>{" "}
+                      <span className="text-primary">{study.metrics.time}</span>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-xs text-primary/30">Last commit: {study.metrics.time} ago</div>
+                      <div className="text-xs text-primary/30">
+                        Last commit: {study.metrics.time} ago
+                      </div>
                     </div>
                   </div>
 
                   <CardBody className="p-6 font-mono">
                     {/* Title & Description */}
-                    <h3 className="mb-2 text-xl font-semibold text-primary group-hover:text-teal-400 transition-colors">
+                    <h3 className="mb-2 text-lg sm:text-xl font-semibold text-primary group-hover:text-teal-400 transition-colors">
                       {study.name}
                     </h3>
                     <p className="mb-4 text-sm text-foreground/60">
@@ -115,9 +123,7 @@ export function CaseStudies() {
 
                     {/* Metrics */}
                     <div className="mb-4 rounded-lg bg-content2/50 p-3 text-center">
-                      <div className="text-xs text-foreground/50">
-                        Built in
-                      </div>
+                      <div className="text-xs text-foreground/50">Built in</div>
                       <div className="text-sm font-semibold text-success">
                         {study.metrics.time}
                       </div>
@@ -143,7 +149,7 @@ export function CaseStudies() {
 
         {/* Success Stats */}
         <motion.div
-          className="mx-auto mt-16 max-w-4xl"
+          className="mx-auto mt-8 sm:mt-12 md:mt-16 max-w-4xl px-4 sm:px-6"
           initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
@@ -152,9 +158,9 @@ export function CaseStudies() {
           <div className="bg-background/90 border border-primary/30 rounded-sm p-8 font-mono shadow-[0_0_20px_rgba(0,255,0,0.1)]">
             <div className="grid grid-cols-3 gap-8">
               {[
-                { label: "Success Rate", value: "96%" },
-                { label: "Avg. Time to Market", value: "19 days" },
-                { label: "Client Retention", value: "89%" },
+                { label: "MVPs Delivered", value: "3" },
+                { label: "Avg. Time to Market", value: "20 days" },
+                { label: "Success Rate", value: "100%" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl font-bold text-primary">

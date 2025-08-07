@@ -94,14 +94,14 @@ export function Pricing() {
         </motion.div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-0">
           {/* MVP Package */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-sm sm:text-base leading-relaxed">
+            <pre className="text-primary font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
               {mvpPackage.map((line, i) => (
                 <motion.div
                   key={i}
@@ -118,11 +118,19 @@ export function Pricing() {
                   initial={{ opacity: 0 }}
                   transition={{ delay: i * 0.02 }}
                 >
-                  <span dangerouslySetInnerHTML={{
-                    __html: line
-                      .replace(/\[✓\]/g, '<span class="text-teal-400">[✓]</span>')
-                      .replace(/INCLUDED FEATURES:/g, '<span class="text-teal-400">INCLUDED FEATURES:</span>')
-                  }} />
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: line
+                        .replace(
+                          /\[✓\]/g,
+                          '<span class="text-teal-400">[✓]</span>',
+                        )
+                        .replace(
+                          /INCLUDED FEATURES:/g,
+                          '<span class="text-teal-400">INCLUDED FEATURES:</span>',
+                        ),
+                    }}
+                  />
                 </motion.div>
               ))}
             </pre>
@@ -135,7 +143,7 @@ export function Pricing() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-sm sm:text-base leading-relaxed">
+            <pre className="text-primary font-mono text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto">
               {enterprisePackage.map((line, i) => (
                 <motion.div
                   key={i}
@@ -150,11 +158,19 @@ export function Pricing() {
                   initial={{ opacity: 0 }}
                   transition={{ delay: i * 0.02 }}
                 >
-                  <span dangerouslySetInnerHTML={{
-                    __html: line
-                      .replace(/\[✓\]/g, '<span class="text-teal-400">[✓]</span>')
-                      .replace(/EVERYTHING IN MVP PLUS:/g, '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>')
-                  }} />
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: line
+                        .replace(
+                          /\[✓\]/g,
+                          '<span class="text-teal-400">[✓]</span>',
+                        )
+                        .replace(
+                          /EVERYTHING IN MVP PLUS:/g,
+                          '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>',
+                        ),
+                    }}
+                  />
                 </motion.div>
               ))}
             </pre>
@@ -169,10 +185,10 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
         >
           <Link
-            className="inline-block bg-primary text-background font-mono font-bold px-12 py-4 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-lg"
+            className="inline-block bg-primary text-background font-mono font-bold px-8 sm:px-12 py-3 sm:py-4 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-base sm:text-lg"
             href="#get-started"
           >
-            $ contact --get-started_
+            Book Your Slot Now
           </Link>
         </motion.div>
 
@@ -200,11 +216,11 @@ export function Pricing() {
             </div>
             <div className="grid grid-cols-3 gap-8 text-base">
               <div>
-                <span className="text-success">500+</span>
+                <span className="text-success">3</span>
                 <span className="text-primary/50"> MVPs</span>
               </div>
               <div>
-                <span className="text-success">96%</span>
+                <span className="text-success">100%</span>
                 <span className="text-primary/50"> Success</span>
               </div>
               <div>

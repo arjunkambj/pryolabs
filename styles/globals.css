@@ -16,18 +16,18 @@
   }
   
   body {
-    background: #0a0e0a !important;
+    background: #050705 !important;
     color: #00ff00;
     font-size: 16px;
     line-height: 1.6;
   }
   
   .bg-background {
-    background: #0a0e0a !important;
+    background: #050705 !important;
   }
   
   .bg-content1\/5 {
-    background: rgba(15, 20, 15, 0.3) !important;
+    background: rgba(10, 12, 10, 0.2) !important;
   }
 
   h1 { font-size: 3rem; }
@@ -42,7 +42,7 @@
 
   ::selection {
     background: #00ff00;
-    color: #0a0e0a;
+    color: #050705;
   }
 
   /* Terminal cursor blink */

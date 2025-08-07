@@ -4,6 +4,7 @@ import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 import { MatrixRain } from "@/components/shared/matrix-rain";
 
 const asciiLogo = [
@@ -34,7 +35,7 @@ export function Hero() {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
         await new Promise((resolve) =>
-          setTimeout(resolve, terminalCommands[i].delay)
+          setTimeout(resolve, terminalCommands[i].delay),
         );
         setCurrentLine(i);
         const fullText =
@@ -77,7 +78,7 @@ export function Hero() {
         >
           {/* ASCII Logo */}
           <div className="mb-8 flex justify-center">
-            <pre className="text-primary text-xs sm:text-sm font-mono terminal-glow">
+            <pre className="text-primary text-[10px] sm:text-xs md:text-sm font-mono terminal-glow hidden sm:block">
               {asciiLogo.map((line, i) => (
                 <motion.div
                   key={i}
@@ -98,12 +99,12 @@ export function Hero() {
             initial={{ opacity: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <h1 className="text-3xl sm:text-5xl font-mono font-bold mb-4">
-              <span className="text-primary terminal-glow">labs@Pyro</span>
-              <span className="text-secondary">:</span>
-              <span className="text-success">~</span>
-              <span className="text-primary">$ </span>
-              <span className="text-foreground">build-mvp --days=21</span>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-mono font-bold mb-4">
+              <span className="text-primary terminal-glow">Your MVP</span>
+              <span className="text-secondary">.</span>
+              <span className="text-success">Shipped</span>
+              <span className="text-secondary">.</span>
+              <span className="text-teal-400">21 Days</span>
               <span
                 className={`inline-block w-3 h-6 bg-primary ml-1 ${showCursor ? "" : "opacity-0"}`}
               />
@@ -111,12 +112,15 @@ export function Hero() {
             <p className="text-lg text-primary/70 font-mono">
               &gt; Your Idea → Working Product in 21 Days
             </p>
+            <p className="text-base sm:text-lg text-primary/60 font-mono mt-2">
+              No coding knowledge needed - we handle everything
+            </p>
           </motion.div>
 
           {/* Terminal output */}
           <motion.div
             animate={{ opacity: 1, scale: 1 }}
-            className="mb-12 max-w-3xl mx-auto"
+            className="mb-8 sm:mb-12 max-w-3xl mx-auto px-4 sm:px-0"
             initial={{ opacity: 0, scale: 0.95 }}
             transition={{ delay: 1 }}
           >
@@ -182,44 +186,44 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             transition={{ delay: 1.5 }}
           >
             <Button
               as={Link}
-              className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300"
+              className="bg-primary text-background font-mono font-bold px-6 sm:px-8 py-4 sm:py-6 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-sm sm:text-base"
               href="#get-started"
               size="lg"
             >
-              $ execute --start-now_
+              Book Now • 2 Slots Left
             </Button>
             <Button
               as={Link}
-              className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 hover:border-teal-400 hover:text-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
-              href="#features"
+              className="border-primary text-primary font-mono px-6 sm:px-8 py-4 sm:py-6 hover:bg-primary/10 hover:border-teal-400 hover:text-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 text-sm sm:text-base"
+              href="#portfolio"
               size="lg"
               variant="bordered"
             >
-              $ view --features_
+              See Our Work
             </Button>
           </motion.div>
 
           {/* Stats */}
           <motion.div
             animate={{ opacity: 1 }}
-            className="mt-20 grid grid-cols-3 gap-12 max-w-3xl mx-auto p-8 border border-primary/20 bg-background/30 backdrop-blur"
+            className="mt-12 sm:mt-20 grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 max-w-3xl mx-auto p-4 sm:p-6 md:p-8 border border-primary/20 bg-background/30 backdrop-blur mx-4 sm:mx-auto"
             initial={{ opacity: 0 }}
             transition={{ delay: 2 }}
           >
             {[
-              { label: "Success Rate", value: "96%", prefix: "float" },
-              { label: "Avg Days", value: "19", prefix: "const" },
-              { label: "ROI", value: "10x", prefix: "return" },
+              { label: "MVPs Built", value: "3", prefix: "count" },
+              { label: "Avg Days", value: "20", prefix: "const" },
+              { label: "Success Rate", value: "100%", prefix: "float" },
             ].map((stat) => (
               <div key={stat.label} className="text-center font-mono">
                 <div className="text-xs text-primary/50">{stat.prefix}</div>
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-lg sm:text-xl md:text-2xl font-bold text-primary">
                   <span className="text-teal-400">{stat.value}</span>
                 </div>
                 <div className="text-xs text-primary/70 mt-1">{stat.label}</div>

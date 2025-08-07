@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import { Providers } from "../components/shared/providers";
 import { GlitchEffect } from "../components/shared/glitch-effect";
+import { FloatingCTA } from "../components/shared/floating-cta";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -39,10 +40,11 @@ export default function RootLayout({
           "min-h-dvh text-foreground font-sans antialiased",
           fontSans.variable,
         )}
-        style={{ backgroundColor: '#0a0e0a' }}
+        style={{ backgroundColor: "#050705" }}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <GlitchEffect />
+          <FloatingCTA />
           <main>{children}</main>
         </Providers>
       </body>

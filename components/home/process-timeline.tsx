@@ -1,191 +1,170 @@
 "use client";
 
-import { Card, CardBody } from "@heroui/react";
-import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 
-const processSteps = [
+const gitLog = [
   {
-    day: "Day 1-3",
-    phase: "Discovery & Planning",
-    title: "Understanding Your Vision",
-    tasks: [
-      "Requirements gathering",
-      "User flow mapping",
-      "Tech stack selection",
-      "Project roadmap",
+    commit: "a3f4b2c",
+    date: "Day 1-3",
+    author: "team@pyro",
+    message: "Initial commit: Project kickoff and discovery",
+    changes: [
+      "+ requirements.md",
+      "+ user-stories.md",
+      "+ tech-stack.md",
+      "+ roadmap.md",
     ],
-    icon: "solar:clipboard-text-bold-duotone",
-    color: "text-primary",
+    stats: "4 files added, 120 insertions(+)",
   },
   {
-    day: "Day 4-7",
-    phase: "Design & Prototyping",
-    title: "Creating Your Brand",
-    tasks: [
-      "UI/UX design",
-      "Figma mockups",
-      "Component library",
-      "Design system",
+    commit: "7d8e9f0",
+    date: "Day 4-7",
+    author: "design@pyro",
+    message: "feat: Complete UI/UX design system",
+    changes: [
+      "+ figma/components.fig",
+      "+ figma/design-system.fig",
+      "+ assets/icons/*",
+      "+ styles/theme.css",
     ],
-    icon: "solar:palette-2-bold-duotone",
-    color: "text-secondary",
+    stats: "28 files added, 450 insertions(+)",
   },
   {
-    day: "Day 8-14",
-    phase: "Development Sprint",
-    title: "Building Your Product",
-    tasks: [
-      "Frontend development",
-      "Backend API",
-      "Database setup",
-      "Integration testing",
+    commit: "1b2c3d4",
+    date: "Day 8-14",
+    author: "dev@pyro",
+    message: "feat: Implement core application",
+    changes: [
+      "+ src/components/*",
+      "+ src/api/*",
+      "+ src/database/*",
+      "+ tests/*",
     ],
-    icon: "solar:code-square-bold-duotone",
-    color: "text-primary",
+    stats: "156 files changed, 8420 insertions(+)",
   },
   {
-    day: "Day 15-18",
-    phase: "Polish & Testing",
-    title: "Perfecting Every Detail",
-    tasks: [
-      "User testing",
-      "Bug fixes",
-      "Performance optimization",
-      "Security audit",
+    commit: "5e6f7a8",
+    date: "Day 15-18",
+    author: "qa@pyro",
+    message: "test: Complete testing and optimization",
+    changes: [
+      "M src/components/*.tsx",
+      "+ tests/e2e/*",
+      "+ .github/workflows/ci.yml",
+      "M performance.config",
     ],
-    icon: "solar:shield-check-bold-duotone",
-    color: "text-secondary",
+    stats: "82 files changed, 420 insertions(+), 180 deletions(-)",
   },
   {
-    day: "Day 19-21",
-    phase: "Launch & Deploy",
-    title: "Going Live",
-    tasks: [
-      "Production deployment",
-      "Domain setup",
-      "Analytics integration",
-      "Handover & training",
+    commit: "9c0d1e2",
+    date: "Day 19-21",
+    author: "devops@pyro",
+    message: "deploy: Production release v1.0.0 🚀",
+    changes: [
+      "+ docker-compose.yml",
+      "+ .env.production",
+      "+ nginx.conf",
+      "M package.json",
     ],
-    icon: "solar:rocket-2-bold-duotone",
-    color: "text-success",
+    stats: "12 files changed, 240 insertions(+)",
   },
 ];
 
 export function ProcessTimeline() {
   return (
-    <section id="process" className="relative py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-24" id="process">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Your MVP in 21 Days
-            </h2>
-            <p className="mt-4 text-lg text-foreground/60">
-              A proven, systematic approach to building production-ready products
-            </p>
-          </motion.div>
-        </div>
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
+        >
+          <div className="font-mono text-sm text-primary/50 mb-4">
+            $ git log --oneline --graph --all
+          </div>
+          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
+            21-DAY DEVELOPMENT TIMELINE
+          </h2>
+        </motion.div>
 
-        {/* Timeline */}
-        <div className="mx-auto mt-16 max-w-5xl">
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-secondary to-success opacity-20 hidden lg:block" />
-
-            {/* Steps */}
-            <div className="space-y-8">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.phase}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  <div className="flex gap-6">
-                    {/* Icon */}
-                    <div className="relative z-10 hidden lg:flex">
-                      <div className="h-16 w-16 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 p-0.5">
-                        <div className="flex h-full w-full items-center justify-center rounded-full bg-background">
-                          <Icon
-                            icon={step.icon}
-                            className={step.color}
-                            width={28}
-                            height={28}
-                          />
-                        </div>
-                      </div>
+        {/* Git Log Timeline */}
+        <div className="max-w-5xl mx-auto">
+          <div className="border border-primary/30 bg-background/50 p-6 font-mono">
+            {gitLog.map((commit, index) => (
+              <motion.div
+                key={commit.commit}
+                className="mb-8 last:mb-0"
+                initial={{ opacity: 0, x: -20 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, x: 0 }}
+              >
+                {/* Commit header */}
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="text-secondary">*</span>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-2 text-sm">
+                      <span className="text-secondary font-bold">
+                        commit {commit.commit}
+                      </span>
+                      <span className="text-primary/50">({commit.date})</span>
                     </div>
-
-                    {/* Content */}
-                    <Card className="flex-1 border border-divider bg-content1/50 backdrop-blur hover:border-primary/50 transition-colors">
-                      <CardBody className="p-6">
-                        <div className="flex items-start justify-between">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-2">
-                              <span className="text-xs font-semibold text-primary">
-                                {step.day}
-                              </span>
-                              <span className="text-xs text-foreground/40">
-                                {step.phase}
-                              </span>
-                            </div>
-                            <h3 className="text-lg font-semibold text-foreground mb-3">
-                              {step.title}
-                            </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {step.tasks.map((task) => (
-                                <div
-                                  key={task}
-                                  className="flex items-center gap-2 text-sm text-foreground/60"
-                                >
-                                  <Icon
-                                    icon="solar:check-circle-bold"
-                                    className="text-success shrink-0"
-                                    width={16}
-                                  />
-                                  <span>{task}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                          <Icon
-                            icon={step.icon}
-                            className={`${step.color} lg:hidden`}
-                            width={32}
-                            height={32}
-                          />
-                        </div>
-                      </CardBody>
-                    </Card>
+                    <div className="text-xs text-primary/50 mt-1">
+                      Author: {commit.author}
+                    </div>
+                    <div className="text-sm text-foreground mt-2">
+                      {commit.message}
+                    </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+
+                {/* Changes */}
+                <div className="ml-6 pl-3 border-l border-primary/20">
+                  {commit.changes.map((change, i) => (
+                    <div key={i} className="text-xs text-primary/70 mb-1">
+                      <span
+                        className={
+                          change.startsWith("+")
+                            ? "text-success"
+                            : change.startsWith("M")
+                              ? "text-secondary"
+                              : "text-danger"
+                        }
+                      >
+                        {change}
+                      </span>
+                    </div>
+                  ))}
+                  <div className="text-xs text-primary/50 mt-2">
+                    {commit.stats}
+                  </div>
+                </div>
+
+                {/* Separator */}
+                {index < gitLog.length - 1 && (
+                  <div className="mt-6 text-primary/20">│</div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
 
         {/* Bottom CTA */}
         <motion.div
+          className="mt-16 text-center font-mono"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-16 text-center"
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2">
-            <Icon icon="solar:calendar-bold" className="text-primary" width={20} />
-            <span className="text-sm font-medium text-primary">
-              Ready to start? Book a free consultation today
-            </span>
+          <div className="inline-block border border-primary/30 bg-primary/5 px-6 py-3">
+            <div className="text-sm text-primary">
+              $ git checkout -b your-mvp
+            </div>
+            <div className="text-xs text-primary/50 mt-1">
+              Ready to start your project? Let's begin the sprint.
+            </div>
           </div>
         </motion.div>
       </div>

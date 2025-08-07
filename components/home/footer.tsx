@@ -1,64 +1,90 @@
 "use client";
 
 import Link from "next/link";
-import { Icon } from "@iconify/react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-divider bg-content1 py-10 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 sm:flex-row">
-        <div className="text-center sm:text-left">
-          <div className="flex items-center justify-center gap-2 sm:justify-start">
-            <Icon
-              icon="solar:fire-bold-duotone"
-              className="text-primary"
-              width={22}
-              height={22}
-            />
-            <span className="font-semibold">
+    <footer className="border-t border-primary bg-background font-mono">
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+          {/* System Info */}
+          <div>
+            <div className="text-primary mb-2">$ uname -a</div>
+            <div className="text-foreground/70 text-xs">
               Pyro Labs | Ship Fast. Ship Right.
-            </span>
+              <br />
+              System: Production v2.0.0
+              <br />
+              Uptime: 99.99% | Response: &lt;200ms
+            </div>
           </div>
-          <p className="mt-1 text-xs text-foreground/60">
-            © 2025 Pyro Labs. All rights reserved.
-          </p>
-        </div>
 
-        <div className="flex items-center gap-6 text-sm">
-          <Link
-            href="#terms"
-            className="text-foreground/80 hover:text-foreground"
-          >
-            Terms
-          </Link>
-          <Link
-            href="#privacy"
-            className="text-foreground/80 hover:text-foreground"
-          >
-            Privacy
-          </Link>
-          <Link
-            href="#contact"
-            className="text-foreground/80 hover:text-foreground"
-          >
-            Contact
-          </Link>
-          <a
-            href="https://www.linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-foreground/80 hover:text-foreground"
-          >
-            <Icon icon="mdi:linkedin" width={18} height={18} />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-foreground/80 hover:text-foreground"
-          >
-            <Icon icon="mdi:twitter" width={18} height={18} />
-          </a>
+          {/* Quick Links */}
+          <div>
+            <div className="text-primary mb-2">$ ls -la /links</div>
+            <div className="space-y-1 text-xs">
+              <Link
+                className="block text-foreground/70 hover:text-primary transition-colors"
+                href="#terms"
+              >
+                -rw-r--r-- terms.txt
+              </Link>
+              <Link
+                className="block text-foreground/70 hover:text-primary transition-colors"
+                href="#privacy"
+              >
+                -rw-r--r-- privacy.md
+              </Link>
+              <Link
+                className="block text-foreground/70 hover:text-primary transition-colors"
+                href="#contact"
+              >
+                -rwxr-xr-x contact.sh
+              </Link>
+              <a
+                className="block text-foreground/70 hover:text-primary transition-colors"
+                href="https://github.com"
+                rel="noreferrer"
+                target="_blank"
+              >
+                drwxr-xr-x github/
+              </a>
+            </div>
+          </div>
+
+          {/* Network Status */}
+          <div>
+            <div className="text-primary mb-2">$ netstat -an</div>
+            <div className="text-xs text-foreground/70">
+              Active connections:
+              <br />
+              Port 80: <span className="text-success">LISTENING</span>
+              <br />
+              Port 443: <span className="text-success">LISTENING</span>
+              <br />
+              Status: <span className="text-success">● ONLINE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Status Bar */}
+      <div className="border-t border-primary/30 bg-content1/20">
+        <div className="max-w-7xl mx-auto px-6 py-2">
+          <div className="flex items-center justify-between text-xs text-primary/50">
+            <div className="flex items-center gap-4">
+              <span>© 2024 Pyro Labs</span>
+              <span>PID: 1337</span>
+              <span>TTY: pts/0</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>Load: 0.42</span>
+              <span>Mem: 16GB</span>
+              <span>Disk: 42%</span>
+              <span>{new Date().toLocaleTimeString()}</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

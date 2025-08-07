@@ -1,12 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { motion } from "framer-motion";
 
 export function Navbar() {
-  const [command, setCommand] = useState("");
-
   const navItems = [
     { cmd: "ls", label: "Process", href: "#process" },
     { cmd: "cat", label: "Features", href: "#features" },
@@ -20,7 +16,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-mono">
+          <Link className="flex items-center gap-2 font-mono" href="/">
             <span className="text-primary font-bold">root@pyro</span>
             <span className="text-secondary">:</span>
             <span className="text-success">~</span>
@@ -33,19 +29,21 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
                 className="font-mono text-sm text-primary/70 hover:text-primary transition-colors"
+                href={item.href}
               >
                 <span className="text-primary/50">$ </span>
-                <span className="hover:terminal-glow">{item.cmd} {item.label.toLowerCase()}</span>
+                <span className="hover:terminal-glow">
+                  {item.cmd} {item.label.toLowerCase()}
+                </span>
               </Link>
             ))}
           </div>
 
           {/* CTA */}
           <Link
-            href="#get-started"
             className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 transition-colors"
+            href="#get-started"
           >
             $ contact --now_
           </Link>

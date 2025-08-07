@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -28,32 +28,34 @@ export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [currentLine, setCurrentLine] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
-  const controls = useAnimation();
 
   useEffect(() => {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
-        await new Promise(resolve => setTimeout(resolve, terminalCommands[i].delay));
+        await new Promise((resolve) =>
+          setTimeout(resolve, terminalCommands[i].delay),
+        );
         setCurrentLine(i);
-        const fullText = terminalCommands[i].prompt + terminalCommands[i].command;
-        
+        const fullText =
+          terminalCommands[i].prompt + terminalCommands[i].command;
+
         for (let j = 0; j <= fullText.length; j++) {
           setTypedText(fullText.slice(0, j));
-          await new Promise(resolve => setTimeout(resolve, 30));
+          await new Promise((resolve) => setTimeout(resolve, 30));
         }
-        
+
         if (i < terminalCommands.length - 1) {
-          await new Promise(resolve => setTimeout(resolve, 200));
+          await new Promise((resolve) => setTimeout(resolve, 200));
         }
       }
     };
-    
+
     typeText();
-    
+
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 500);
-    
+
     return () => clearInterval(cursorInterval);
   }, []);
 
@@ -61,14 +63,14 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* CRT scanline effect */}
       <div className="scanline" />
-      
+
       {/* Terminal window */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
         >
           {/* ASCII Logo */}
           <div className="mb-8 flex justify-center">
@@ -76,8 +78,8 @@ export function Hero() {
               {asciiLogo.map((line, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
                   transition={{ delay: i * 0.1 }}
                 >
                   {line}
@@ -88,10 +90,10 @@ export function Hero() {
 
           {/* Main headline with typing effect */}
           <motion.div
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
             className="mb-8"
+            initial={{ opacity: 0 }}
+            transition={{ delay: 0.8 }}
           >
             <h1 className="text-3xl sm:text-5xl font-mono font-bold mb-4">
               <span className="text-primary terminal-glow">root@pyro</span>
@@ -99,7 +101,9 @@ export function Hero() {
               <span className="text-success">~</span>
               <span className="text-primary">$ </span>
               <span className="text-foreground">build-mvp --days=21</span>
-              <span className={`inline-block w-3 h-6 bg-primary ml-1 ${showCursor ? '' : 'opacity-0'}`} />
+              <span
+                className={`inline-block w-3 h-6 bg-primary ml-1 ${showCursor ? "" : "opacity-0"}`}
+              />
             </h1>
             <p className="text-lg text-primary/70 font-mono">
               &gt; Transform your idea into production-ready MVP
@@ -108,10 +112,10 @@ export function Hero() {
 
           {/* Terminal output */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1 }}
             className="mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            transition={{ delay: 1 }}
           >
             <div className="border border-primary bg-background/50 backdrop-blur p-6 text-left font-mono text-sm">
               <div className="mb-2 text-primary/50">
@@ -120,17 +124,31 @@ export function Hero() {
               <div className="mb-4 text-primary/50">
                 [SYSTEM] Initializing 21-day sprint...
               </div>
-              
+
               {terminalCommands.slice(0, currentLine + 1).map((cmd, i) => (
                 <div key={i} className="mb-1">
-                  <span className={cmd.prompt === "✓ " ? "text-success" : "text-primary"}>
+                  <span
+                    className={
+                      cmd.prompt === "✓ " ? "text-success" : "text-primary"
+                    }
+                  >
                     {cmd.prompt}
                   </span>
-                  <span className={cmd.prompt === "✓ " ? "text-success font-bold" : "text-foreground"}>
-                    {i === currentLine ? typedText.slice(cmd.prompt.length) : cmd.command}
+                  <span
+                    className={
+                      cmd.prompt === "✓ "
+                        ? "text-success font-bold"
+                        : "text-foreground"
+                    }
+                  >
+                    {i === currentLine
+                      ? typedText.slice(cmd.prompt.length)
+                      : cmd.command}
                   </span>
                   {i === currentLine && (
-                    <span className={`inline-block w-2 h-4 bg-primary ml-1 ${showCursor ? '' : 'opacity-0'}`} />
+                    <span
+                      className={`inline-block w-2 h-4 bg-primary ml-1 ${showCursor ? "" : "opacity-0"}`}
+                    />
                   )}
                 </div>
               ))}
@@ -139,25 +157,25 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ delay: 1.5 }}
           >
             <Button
               as={Link}
-              href="#get-started"
               className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 transition-colors"
+              href="#get-started"
               size="lg"
             >
               $ execute --start-now_
             </Button>
             <Button
               as={Link}
-              href="#process"
-              variant="bordered"
               className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 transition-colors"
+              href="#process"
               size="lg"
+              variant="bordered"
             >
               $ man pyro-process_
             </Button>
@@ -165,10 +183,10 @@ export function Hero() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
             className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-4xl mx-auto"
+            initial={{ opacity: 0 }}
+            transition={{ delay: 2 }}
           >
             {[
               { label: "MVPs Built", value: "500+", prefix: "int" },
@@ -190,15 +208,18 @@ export function Hero() {
 
       {/* Background matrix effect */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
             0deg,
             transparent,
             transparent 2px,
             rgba(0, 255, 0, 0.03) 2px,
             rgba(0, 255, 0, 0.03) 4px
-          )`
-        }} />
+          )`,
+          }}
+        />
       </div>
     </section>
   );

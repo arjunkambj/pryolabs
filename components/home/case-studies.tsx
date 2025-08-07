@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardBody, Chip } from "@heroui/react";
-import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -9,7 +8,8 @@ const caseStudies = [
   {
     name: "TaskFlow",
     category: "Project Management",
-    description: "AI-powered project management platform with team collaboration",
+    description:
+      "AI-powered project management platform with team collaboration",
     image: "https://placehold.co/600x400/1a1a1a/666666?text=TaskFlow",
     metrics: {
       users: "5,000+",
@@ -35,7 +35,8 @@ const caseStudies = [
   {
     name: "EduLearn",
     category: "EdTech",
-    description: "Online learning platform with video courses and certifications",
+    description:
+      "Online learning platform with video courses and certifications",
     image: "https://placehold.co/600x400/1a1a1a/666666?text=EduLearn",
     metrics: {
       users: "25,000+",
@@ -49,15 +50,15 @@ const caseStudies = [
 
 export function CaseStudies() {
   return (
-    <section id="portfolio" className="relative py-24 bg-background">
+    <section className="relative py-24 bg-background" id="portfolio">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               MVPs That Scale
@@ -75,26 +76,28 @@ export function CaseStudies() {
               <motion.div
                 key={study.name}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, y: 0 }}
               >
                 <Card className="group h-full overflow-hidden border border-divider bg-content1/50 backdrop-blur hover:border-primary/50 hover:shadow-xl transition-all">
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden bg-gradient-to-br from-content2 to-content3">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${study.color}`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${study.color}`}
+                    />
                     <Image
-                      src={study.image}
                       alt={study.name}
-                      width={600}
-                      height={400}
                       className="h-full w-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                      height={400}
+                      src={study.image}
+                      width={600}
                     />
                     <div className="absolute top-4 left-4">
                       <Chip
-                        variant="flat"
                         className="bg-background/80 backdrop-blur"
                         size="sm"
+                        variant="flat"
                       >
                         {study.category}
                       </Chip>
@@ -119,13 +122,17 @@ export function CaseStudies() {
                         </div>
                       </div>
                       <div className="text-center border-x border-divider">
-                        <div className="text-xs text-foreground/50">Revenue</div>
+                        <div className="text-xs text-foreground/50">
+                          Revenue
+                        </div>
                         <div className="text-sm font-semibold text-success">
                           {study.metrics.revenue}
                         </div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xs text-foreground/50">Built in</div>
+                        <div className="text-xs text-foreground/50">
+                          Built in
+                        </div>
                         <div className="text-sm font-semibold text-secondary">
                           {study.metrics.time}
                         </div>
@@ -152,11 +159,11 @@ export function CaseStudies() {
 
         {/* Success Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="mx-auto mt-16 max-w-4xl"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-secondary/10 p-8">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">

@@ -6,7 +6,7 @@ import Link from "next/link";
 const asciiBox = [
   "┌─────────────────────────────────────────────────────────┐",
   "│                                                         │",
-  "│                    MVP PACKAGE v2.0                     │", 
+  "│                    MVP PACKAGE v2.0                     │",
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
@@ -36,14 +36,14 @@ const asciiBox = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-content1/10">
+    <section className="py-24 bg-content1/10" id="pricing">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
+          initial={{ opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
         >
           <div className="font-mono text-sm text-primary/50 mb-4">
             $ cat /etc/pricing.conf
@@ -58,24 +58,27 @@ export function Pricing() {
 
         {/* ASCII Pricing Box */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
           className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, scale: 0.95 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, scale: 1 }}
         >
           <pre className="text-primary font-mono text-xs sm:text-sm leading-relaxed">
             {asciiBox.map((line, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: i * 0.02 }}
                 className={
-                  line.includes('$5,999') ? 'text-success font-bold terminal-glow' :
-                  line.includes('[✓]') ? 'text-success' :
-                  line.includes('MVP PACKAGE') ? 'text-secondary font-bold' :
-                  'text-primary'
+                  line.includes("$5,999")
+                    ? "text-success font-bold terminal-glow"
+                    : line.includes("[✓]")
+                      ? "text-success"
+                      : line.includes("MVP PACKAGE")
+                        ? "text-secondary font-bold"
+                        : "text-primary"
                 }
+                initial={{ opacity: 0 }}
+                transition={{ delay: i * 0.02 }}
               >
                 {line}
               </motion.div>
@@ -85,18 +88,18 @@ export function Pricing() {
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <Link
-            href="#get-started"
             className="inline-block bg-primary text-background font-mono font-bold px-8 py-4 hover:bg-primary/80 transition-colors"
+            href="#get-started"
           >
             $ purchase --package=mvp --confirm_
           </Link>
-          
+
           <div className="mt-6 font-mono text-xs text-primary/50">
             <div>Payment terms: 50% upfront, 50% on delivery</div>
             <div>Accepted methods: Wire, ACH, Credit Card</div>
@@ -105,10 +108,10 @@ export function Pricing() {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
           className="mt-16 font-mono text-center"
+          initial={{ opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1 }}
         >
           <div className="inline-block border border-primary/30 p-4">
             <div className="text-xs text-primary/50 mb-2">

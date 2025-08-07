@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const logos = [
@@ -14,7 +13,7 @@ const logos = [
 
 export function Logos() {
   return (
-    <section id="logos" className="relative bg-transparent py-16">
+    <section className="relative bg-transparent py-16" id="logos">
       <div className="mx-auto max-w-6xl px-6">
         <div className="text-center">
           <h3 className="text-xl font-semibold text-foreground">
@@ -30,8 +29,8 @@ export function Logos() {
           {logos.map((logo) => (
             <motion.div
               key={logo.name}
-              whileHover={{ scale: 1.03 }}
               className="group flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.02] p-4 transition-colors"
+              whileHover={{ scale: 1.03 }}
             >
               {/* Use placeholder if asset not present */}
               <div className="text-sm text-foreground/60 group-hover:text-foreground/80">

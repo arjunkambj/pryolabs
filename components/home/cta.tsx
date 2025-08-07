@@ -37,7 +37,7 @@ export function CTA() {
           {/* Terminal Content */}
           <div className="space-y-6">
             <div className="text-2xl sm:text-3xl font-bold text-primary terminal-glow mb-2">
-              2 Slots Available for January
+              2 Slots Available for this month
             </div>
             <div className="text-sm sm:text-base text-foreground/70">
               Start your 21-day sprint today.

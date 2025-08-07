@@ -116,7 +116,7 @@ export function Hero() {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
         await new Promise((resolve) =>
-          setTimeout(resolve, terminalCommands[i].delay + 300)
+          setTimeout(resolve, terminalCommands[i].delay + 300),
         );
         setCurrentLine(i);
 

@@ -60,7 +60,7 @@ export function CaseStudies() {
               <span className="hidden sm:inline">
                 ═══════════════════════════════════════
               </span>
-              <span className="sm:hidden">═══════════════</span>
+              <span className="sm:hidden">═════════════════════</span>
             </h2>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight font-mono text-primary mb-4">
               DELIVERED MVPs
@@ -69,7 +69,7 @@ export function CaseStudies() {
               <span className="hidden sm:inline">
                 ═══════════════════════════════════════
               </span>
-              <span className="sm:hidden">═══════════════</span>
+              <span className="sm:hidden">═════════════════════</span>
             </h2>
             <p className="mt-4 text-lg text-foreground/60 font-mono">
               Real products we&apos;ve built that are now thriving businesses

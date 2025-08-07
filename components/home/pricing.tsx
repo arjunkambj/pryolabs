@@ -3,63 +3,55 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const mvpPackage = [
-  "┌─────────────────────────────────────────────────────────┐",
-  "│                                                         │",
-  "│                    MVP PACKAGE v2.0                     │",
-  "│                                                         │",
-  "├─────────────────────────────────────────────────────────┤",
-  "│                                                         │",
-  "│  <span class='text-2xl font-bold'>PRICE: $5,999</span> (one-time)                        │",
-  "│  DELIVERY: 21 days                                      │",
-  "│  GUARANTEE: 100% money-back                             │",
-  "│                                                         │",
-  "├─────────────────────────────────────────────────────────┤",
-  "│                                                         │",
-  "│  <span class='text-teal'>INCLUDED FEATURES:</span>                                    │",
-  "│  ─────────────────                                      │",
-  "│  [✓] Discovery & Requirements Analysis                  │",
-  "│  [✓] UI/UX Design in Figma                              │",
-  "│  [✓] Responsive Frontend Development                    │",
-  "│  [✓] Backend API & Database                             │",
-  "│  [✓] Authentication & User Management                   │",
-  "│  [✓] Payment Integration                                │",
-  "│  [✓] Cloud Deployment & Hosting                         │",
-  "│  [✓] Analytics & Monitoring                             │",
-  "│  [✓] Documentation & Code Handover                      │",
-  "│  [✓] 1 Week Post-Launch Support                         │",
-  "│  [✓] Full Source Code Ownership                         │",
-  "│                                                         │",
-  "└─────────────────────────────────────────────────────────┘",
-];
-
-const enterprisePackage = [
-  "┌─────────────────────────────────────────────────────────┐",
-  "│                                                         │",
-  "│                ENTERPRISE PACKAGE v2.0                  │",
-  "│                                                         │",
-  "├─────────────────────────────────────────────────────────┤",
-  "│                                                         │",
-  "│  <span class='text-2xl font-bold'>PRICE: Custom Quote</span>                          │",
-  "│  DELIVERY: Flexible timeline                            │",
-  "│  GUARANTEE: SLA-backed delivery                         │",
-  "│                                                         │",
-  "├─────────────────────────────────────────────────────────┤",
-  "│                                                         │",
-  "│  <span class='text-teal'>EVERYTHING IN MVP PLUS:</span>                                │",
-  "│  ──────────────────────                                 │",
-  "│  [✓] Extended Development (30-90 days)                  │",
-  "│  [✓] Multiple Product Modules                           │",
-  "│  [✓] Advanced Integrations                              │",
-  "│  [✓] Team Training & Handover                           │",
-  "│  [✓] Priority Support                                   │",
-  "│  [✓] Quarterly Maintenance Updates                      │",
-  "│  [✓] Dedicated Project Manager                          │",
-  "│  [✓] Custom SLA Agreement                               │",
-  "│  [✓] White-label Options                                │",
-  "│  [✓] Performance Optimization                           │",
-  "│                                                         │",
-  "└─────────────────────────────────────────────────────────┘",
+const pricingPackages = [
+  {
+    name: "MVP PACKAGE",
+    version: "v2.0",
+    price: "$5,999",
+    priceNote: "one-time",
+    delivery: "21 days",
+    guarantee: "100% money-back",
+    features: [
+      "Discovery & Requirements Analysis",
+      "UI/UX Design in Figma",
+      "Responsive Frontend Development",
+      "Backend API & Database",
+      "Authentication & User Management",
+      "Payment Integration",
+      "Cloud Deployment & Hosting",
+      "Analytics & Monitoring",
+      "Documentation & Code Handover",
+      "1 Week Post-Launch Support",
+      "Full Source Code Ownership",
+    ],
+    popular: true,
+    cta: "Get Started",
+    ctaLink: "#get-started",
+  },
+  {
+    name: "ENTERPRISE PACKAGE",
+    version: "v2.0",
+    price: "Custom",
+    priceNote: "flexible pricing",
+    delivery: "Flexible timeline",
+    guarantee: "SLA-backed delivery",
+    features: [
+      "Everything in MVP Package",
+      "Extended Development (30-90 days)",
+      "Multiple Product Modules",
+      "Advanced Integrations",
+      "Team Training & Handover",
+      "Priority Support",
+      "Quarterly Maintenance Updates",
+      "Dedicated Project Manager",
+      "Custom SLA Agreement",
+      "White-label Options",
+      "Performance Optimization",
+    ],
+    popular: false,
+    cta: "Contact Sales",
+    ctaLink: "#get-started",
+  },
 ];
 
 export function Pricing() {
@@ -80,7 +72,7 @@ export function Pricing() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
           <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
             <span className="hidden sm:inline">TRANSPARENT PRICING</span>
@@ -90,7 +82,7 @@ export function Pricing() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
           <p className="font-mono text-base text-primary/70 mt-4">
             Choose the package that fits your needs
@@ -98,102 +90,106 @@ export function Pricing() {
         </motion.div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto px-4 sm:px-0 overflow-x-auto">
-          {/* MVP Package */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, scale: 1 }}
-          >
-            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-hidden">
-              {mvpPackage.map((line, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: 1 }}
-                  className={
-                    line.includes("$5,999")
-                      ? "text-teal-400 font-bold"
-                      : line.includes("MVP PACKAGE")
-                        ? "text-primary font-bold"
-                        : line.includes("INCLUDED FEATURES")
-                          ? "text-primary"
-                          : "text-primary"
-                  }
-                  initial={{ opacity: 0 }}
-                  transition={{ delay: i * 0.02 }}
-                >
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: line
-                        .replace(
-                          /\[✓\]/g,
-                          '<span class="text-teal-400">[✓]</span>'
-                        )
-                        .replace(
-                          /INCLUDED FEATURES:/g,
-                          '<span class="text-teal-400">INCLUDED FEATURES:</span>'
-                        ),
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </pre>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {pricingPackages.map((pkg, index) => (
+            <motion.div
+              key={pkg.name}
+              className="relative"
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <span className="bg-teal-400 text-background px-3 py-1 text-sm font-mono font-bold">
+                    MOST POPULAR
+                  </span>
+                </div>
+              )}
 
-          {/* Enterprise Package */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, scale: 1 }}
-          >
-            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-hidden">
-              {enterprisePackage.map((line, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: 1 }}
-                  className={
-                    line.includes("Custom Quote")
-                      ? "text-teal-400 font-bold"
-                      : line.includes("ENTERPRISE PACKAGE")
-                        ? "text-primary font-bold"
-                        : "text-primary"
-                  }
-                  initial={{ opacity: 0 }}
-                  transition={{ delay: i * 0.02 }}
-                >
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: line
-                        .replace(
-                          /\[✓\]/g,
-                          '<span class="text-teal-400">[✓]</span>'
-                        )
-                        .replace(
-                          /EVERYTHING IN MVP PLUS:/g,
-                          '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>'
-                        ),
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </pre>
-          </motion.div>
+              <div
+                className={`border ${pkg.popular ? "border-teal-400 shadow-[0_0_20px_rgba(0,212,212,0.2)]" : "border-primary/30"} bg-background/50 p-6 font-mono hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 h-full flex flex-col`}
+              >
+                {/* Package Header */}
+                <div className="mb-6 pb-4 border-b border-primary/30">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-bold text-primary">
+                      {pkg.name}
+                    </h3>
+                    <span className="text-xs text-primary/50">
+                      {pkg.version}
+                    </span>
+                  </div>
+
+                  {/* Price */}
+                  <div className="mt-4">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-teal-400">
+                        {pkg.price}
+                      </span>
+                      <span className="text-sm text-primary/50">
+                        {pkg.priceNote}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Key Details */}
+                  <div className="mt-4 space-y-1 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-primary/70">Delivery:</span>
+                      <span className="text-primary">{pkg.delivery}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-primary/70">Guarantee:</span>
+                      <span className="text-primary">{pkg.guarantee}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features List */}
+                <div className="flex-grow">
+                  <div className="text-sm text-teal-400 font-bold mb-3">
+                    INCLUDED FEATURES:
+                  </div>
+                  <ul className="space-y-2">
+                    {pkg.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <span className="text-teal-400 mt-0.5">✓</span>
+                        <span className="text-foreground/80">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-6 pt-4 border-t border-primary/30">
+                  <Link
+                    className={`block text-center py-3 px-6 font-bold transition-all duration-300 ${
+                      pkg.popular
+                        ? "bg-teal-400 text-background hover:bg-teal-400/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)]"
+                        : "bg-primary text-background hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)]"
+                    }`}
+                    href={pkg.ctaLink}
+                  >
+                    {pkg.cta}
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* CTA Button */}
+        {/* Bottom CTA */}
         <motion.div
-          className="mt-12 text-center"
+          className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <Link
-            className="inline-block bg-primary text-background font-mono font-bold px-8 sm:px-12 py-3 sm:py-4 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-base sm:text-lg"
-            href="#get-started"
-          >
-            Book Your Slot Now
-          </Link>
+          <p className="font-mono text-base text-primary/70 mb-6">
+            Limited slots available. Only 2 projects per month.
+          </p>
         </motion.div>
 
         {/* Payment Terms */}

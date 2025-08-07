@@ -77,7 +77,7 @@ export function FAQ() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
           <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
             <span className="hidden sm:inline">FREQUENTLY ASKED QUESTIONS</span>
@@ -87,7 +87,7 @@ export function FAQ() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
           <p className="font-mono text-base text-primary/70 mt-4">
             Everything you need to know about our service

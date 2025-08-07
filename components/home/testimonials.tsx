@@ -56,7 +56,7 @@ export function Testimonials() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
           <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
             <span className="hidden sm:inline">CODE REVIEWS FROM FOUNDERS</span>
@@ -66,7 +66,7 @@ export function Testimonials() {
             <span className="hidden sm:inline">
               ═══════════════════════════════════════
             </span>
-            <span className="sm:hidden">═══════════════</span>
+            <span className="sm:hidden">═════════════════════</span>
           </h2>
         </motion.div>
 

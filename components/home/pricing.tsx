@@ -67,8 +67,8 @@ const enterprisePackage = [
 
 export function Pricing() {
   return (
-    <section className="py-24 bg-background" id="pricing">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-background" id="pricing">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -80,9 +80,15 @@ export function Pricing() {
             $ cat /etc/pricing.conf
           </div>
           <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
+          </h2>
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             TRANSPARENT PRICING
           </h2>
-          <p className="font-mono text-base text-primary/70">
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
+          </h2>
+          <p className="font-mono text-base text-primary/70 mt-4">
             Choose the package that fits your needs
           </p>
         </motion.div>
@@ -163,7 +169,7 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
         >
           <Link
-            className="inline-block bg-primary text-background font-mono font-bold px-12 py-4 hover:bg-primary/80 transition-colors text-lg"
+            className="inline-block bg-primary text-background font-mono font-bold px-12 py-4 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-lg"
             href="#get-started"
           >
             $ contact --get-started_

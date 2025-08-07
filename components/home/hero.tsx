@@ -61,7 +61,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen  flex items-center justify-center overflow-hidden pt-36">
+    <section className="relative min-h-screen  flex items-center justify-center overflow-hidden pt-24">
       {/* Matrix Rain Background */}
       <MatrixRain />
       {/* CRT scanline effect */}
@@ -188,7 +188,7 @@ export function Hero() {
           >
             <Button
               as={Link}
-              className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all"
+              className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300"
               href="#get-started"
               size="lg"
             >
@@ -196,7 +196,7 @@ export function Hero() {
             </Button>
             <Button
               as={Link}
-              className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 hover:border-teal-400 hover:text-teal-400 transition-all"
+              className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 hover:border-teal-400 hover:text-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
               href="#features"
               size="lg"
               variant="bordered"

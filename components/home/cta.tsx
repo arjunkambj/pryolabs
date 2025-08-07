@@ -16,7 +16,7 @@ export function CTA() {
   }, []);
 
   return (
-    <section className="py-24 bg-background" id="get-started">
+    <section className="py-20 bg-background" id="get-started">
       <div className="max-w-3xl mx-auto px-6">
         <motion.div
           className="border border-primary bg-background/50 p-8 font-mono text-center"
@@ -55,7 +55,7 @@ export function CTA() {
 
             {/* CTA Button */}
             <Link
-              className="inline-block bg-primary text-background font-bold py-4 px-12 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all text-base mt-6 uppercase"
+              className="inline-block bg-primary text-background font-bold py-4 px-12 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-base mt-6 uppercase"
               href="mailto:hello@pyrolabs.io?subject=MVP%20Project%20Inquiry"
             >
               CONTACT US [ENTER] ⏎

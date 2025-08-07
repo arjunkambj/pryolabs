@@ -58,8 +58,8 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-background" id="faq">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="py-20 bg-background/30 border-y border-primary/20" id="faq">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -71,9 +71,15 @@ export function FAQ() {
             $ man pyro | grep -E &quot;faq|help&quot;
           </div>
           <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
+          </h2>
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             FREQUENTLY ASKED QUESTIONS
           </h2>
-          <p className="font-mono text-base text-primary/70">
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
+          </h2>
+          <p className="font-mono text-base text-primary/70 mt-4">
             Everything you need to know about our service
           </p>
         </motion.div>
@@ -99,7 +105,7 @@ export function FAQ() {
                 className="w-full text-left"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <div className="flex items-center gap-2 py-2 hover:bg-primary/5 transition-colors px-2 -mx-2">
+                <div className="flex items-center gap-2 py-2 hover:bg-primary/5 transition-colors duration-300 px-2 -mx-2">
                   <span className="text-primary">
                     {openIndex === index ? "▼" : "▶"}
                   </span>

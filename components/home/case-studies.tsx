@@ -43,8 +43,8 @@ const caseStudies = [
 
 export function CaseStudies() {
   return (
-    <section className="relative py-24 bg-background" id="portfolio">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative py-20 bg-background" id="portfolio">
+      <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <motion.div
@@ -53,8 +53,17 @@ export function CaseStudies() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <h2 className="text-4xl font-bold tracking-tight font-mono text-primary">
+            <div className="font-mono text-base text-primary/50 mb-4">
+              $ ls -la /projects/delivered/*.mvp
+            </div>
+            <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+              ═══════════════════════════════════════
+            </h2>
+            <h2 className="text-4xl font-bold tracking-tight font-mono text-primary mb-4">
               DELIVERED MVPs
+            </h2>
+            <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+              ═══════════════════════════════════════
             </h2>
             <p className="mt-4 text-lg text-foreground/60 font-mono">
               Real products we&apos;ve built that are now thriving businesses
@@ -73,7 +82,7 @@ export function CaseStudies() {
                 viewport={{ once: true }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
-                <Card className="group h-full overflow-hidden border border-primary/30 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all rounded-sm">
+                <Card className="group h-full overflow-hidden border border-primary/30 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 rounded-sm">
                   {/* Terminal Header */}
                   <div className="relative h-48 bg-background border-b border-primary/30 p-4 font-mono text-sm">
                     <div className="flex items-center gap-2 mb-3">

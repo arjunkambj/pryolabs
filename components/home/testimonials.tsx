@@ -37,8 +37,8 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-background" id="testimonials">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-background/30 border-y border-primary/20" id="testimonials">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -50,7 +50,13 @@ export function Testimonials() {
             $ git log --grep=&quot;review&quot; --pretty=format
           </div>
           <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
+          </h2>
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             CODE REVIEWS FROM FOUNDERS
+          </h2>
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            ═══════════════════════════════════════
           </h2>
         </motion.div>
 
@@ -59,7 +65,7 @@ export function Testimonials() {
           {reviews.map((review, index) => (
             <motion.div
               key={review.author}
-              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all"
+              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}

@@ -25,7 +25,7 @@ export function Footer() {
             </div>
             <div className="mt-4 flex gap-4">
               <a
-                className="text-primary/50 hover:text-teal-400 transition-colors text-sm"
+                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
                 href="https://twitter.com/pyrolabs"
                 rel="noreferrer"
                 target="_blank"
@@ -33,7 +33,7 @@ export function Footer() {
                 Twitter
               </a>
               <a
-                className="text-primary/50 hover:text-teal-400 transition-colors text-sm"
+                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
                 href="https://github.com/pyrolabs"
                 rel="noreferrer"
                 target="_blank"
@@ -41,7 +41,7 @@ export function Footer() {
                 GitHub
               </a>
               <a
-                className="text-primary/50 hover:text-teal-400 transition-colors text-sm"
+                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
                 href="https://linkedin.com/company/pyrolabs"
                 rel="noreferrer"
                 target="_blank"
@@ -56,31 +56,31 @@ export function Footer() {
             <div className="text-primary mb-3 font-bold">$ ls services/</div>
             <div className="space-y-2 text-sm">
               <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors"
+                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
                 href="#features"
               >
                 → Tech Stack
               </Link>
               <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors"
+                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
                 href="#portfolio"
               >
                 → Portfolio
               </Link>
               <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors"
+                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
                 href="#pricing"
               >
                 → Pricing
               </Link>
               <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors"
+                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
                 href="#faq"
               >
                 → FAQ
               </Link>
               <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors"
+                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
                 href="#testimonials"
               >
                 → Reviews
@@ -118,19 +118,19 @@ export function Footer() {
               <div>© 2024 Pyro Labs Inc. All rights reserved.</div>
               <div className="mt-2 space-x-4">
                 <Link
-                  className="hover:text-teal-400 transition-colors"
+                  className="hover:text-teal-400 transition-colors duration-300"
                   href="/terms"
                 >
                   Terms of Service
                 </Link>
                 <Link
-                  className="hover:text-teal-400 transition-colors"
+                  className="hover:text-teal-400 transition-colors duration-300"
                   href="/privacy"
                 >
                   Privacy Policy
                 </Link>
                 <Link
-                  className="hover:text-teal-400 transition-colors"
+                  className="hover:text-teal-400 transition-colors duration-300"
                   href="/sla"
                 >
                   SLA

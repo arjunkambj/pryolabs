@@ -61,8 +61,8 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <section className="py-24 bg-background" id="features">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-background/30 border-y border-primary/20" id="features">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -92,7 +92,7 @@ export function FeaturesGrid() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all"
+              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}

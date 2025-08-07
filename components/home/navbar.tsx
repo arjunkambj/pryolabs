@@ -29,11 +29,11 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                className="font-mono text-sm text-primary/70 hover:text-primary transition-all group"
+                className="font-mono text-sm text-primary/70 hover:text-teal-400 transition-all duration-300 group"
                 href={item.href}
               >
                 <span className="text-primary/50 transition-colors">$ </span>
-                <span className="group-hover:text-teal-400 transition-all">
+                <span className="group-hover:text-teal-400 transition-all duration-300">
                   {item.cmd} {item.label.toLowerCase()}
                 </span>
               </Link>
@@ -42,7 +42,7 @@ export function Navbar() {
 
           {/* CTA */}
           <Link
-            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all uppercase font-bold"
+            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 uppercase font-bold"
             href="#get-started"
           >
             $ CONTACT_

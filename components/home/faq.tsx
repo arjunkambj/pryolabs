@@ -100,10 +100,10 @@ export function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex items-center gap-2 py-2 hover:bg-primary/5 transition-colors px-2 -mx-2">
-                  <span className="text-teal-400">
+                  <span className="text-primary">
                     {openIndex === index ? "▼" : "▶"}
                   </span>
-                  <span className="text-success text-base">{faq.command}</span>
+                  <span className="text-primary text-base">{faq.command}</span>
                   <span className="text-primary/50 text-base">--</span>
                   <span className="text-foreground/80 text-base">
                     {faq.question}
@@ -114,7 +114,7 @@ export function FAQ() {
               {openIndex === index && (
                 <motion.div
                   animate={{ opacity: 1, height: "auto" }}
-                  className="ml-6 pl-4 border-l border-teal-400/30 mt-2 mb-4"
+                  className="ml-6 pl-4 border-l border-primary/30 mt-2 mb-4"
                   exit={{ opacity: 0, height: 0 }}
                   initial={{ opacity: 0, height: 0 }}
                 >
@@ -129,8 +129,8 @@ export function FAQ() {
           <div className="mt-8 pt-4 border-t border-primary/30 text-sm text-primary/50">
             Still have questions?
             <br />
-            <span className="text-teal-400">
-              $ contact --email=hello@pyrolabs.io
+            <span className="text-primary">
+              $ contact --email=<span className="text-teal-400">hello@pyrolabs.io</span>
             </span>
           </div>
         </div>

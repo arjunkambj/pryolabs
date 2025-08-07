@@ -59,7 +59,7 @@ export function Testimonials() {
           {reviews.map((review, index) => (
             <motion.div
               key={review.author}
-              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 transition-colors"
+              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
@@ -84,7 +84,7 @@ export function Testimonials() {
 
               {/* Review Content */}
               <div className="mb-3">
-                <div className="text-sm text-teal-400 mb-2">
+                <div className="text-sm text-primary mb-2">
                   {review.rating}
                 </div>
                 <p className="text-base text-foreground/80 leading-relaxed">
@@ -108,11 +108,11 @@ export function Testimonials() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="inline-block border border-success/30 bg-success/5 px-6 py-3">
-            <div className="text-base text-success">
-              ✓ All checks passed • 96% approval rate
+          <div className="inline-block border border-primary/30 bg-background/50 px-6 py-3 shadow-[0_0_15px_rgba(0,255,0,0.1)]">
+            <div className="text-base text-primary">
+              <span className="text-teal-400">✓</span> All checks passed • <span className="text-teal-400">96%</span> approval rate
             </div>
-            <div className="text-sm text-success/50 mt-1">
+            <div className="text-sm text-primary/50 mt-1">
               500+ successful deployments
             </div>
           </div>

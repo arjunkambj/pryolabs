@@ -45,9 +45,9 @@ export function CTA() {
 
             {/* Terminal prompt display */}
             <div className="flex items-center justify-center gap-2 text-lg">
-              <span className="text-teal-400">labs@Pyro</span>
-              <span className="text-primary">$</span>
-              <span className="text-success">_</span>
+              <span className="text-primary">labs@Pyro</span>
+              <span className="text-teal-400">$</span>
+              <span className="text-primary">_</span>
               <span
                 className={`w-2 h-5 bg-primary ${showCursor ? "" : "opacity-0"}`}
               />
@@ -55,7 +55,7 @@ export function CTA() {
 
             {/* CTA Button */}
             <Link
-              className="inline-block bg-primary text-background font-bold py-4 px-12 hover:bg-primary/80 transition-colors text-base mt-6"
+              className="inline-block bg-primary text-background font-bold py-4 px-12 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all text-base mt-6 uppercase"
               href="mailto:hello@pyrolabs.io?subject=MVP%20Project%20Inquiry"
             >
               CONTACT US [ENTER] ⏎

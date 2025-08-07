@@ -32,8 +32,8 @@ export function Navbar() {
                 className="font-mono text-sm text-primary/70 hover:text-primary transition-all group"
                 href={item.href}
               >
-                <span className="text-primary/50 group-hover:text-teal-400 transition-colors">$ </span>
-                <span className="group-hover:text-teal-400 group-hover:text-shadow-[0_0_8px_rgba(0,212,212,0.6)] transition-all">
+                <span className="text-primary/50 transition-colors">$ </span>
+                <span className="group-hover:text-teal-400 transition-all">
                   {item.cmd} {item.label.toLowerCase()}
                 </span>
               </Link>
@@ -42,10 +42,10 @@ export function Navbar() {
 
           {/* CTA */}
           <Link
-            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-teal-400 hover:shadow-[0_0_15px_rgba(0,212,212,0.5)] transition-all"
+            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all uppercase font-bold"
             href="#get-started"
           >
-            $ contact --now_
+            $ CONTACT_
           </Link>
         </div>
       </div>

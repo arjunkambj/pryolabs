@@ -18,7 +18,7 @@ export function MatrixRain() {
     const matrix = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const matrixArray = matrix.split("");
 
-    const fontSize = 14;
+    const fontSize = 10;
     const columns = canvas.width / fontSize;
 
     const drops: number[] = [];
@@ -30,7 +30,7 @@ export function MatrixRain() {
       if (!ctx || !canvas) return;
       
       // Black background with opacity for trail effect
-      ctx.fillStyle = "rgba(10, 14, 10, 0.04)";
+      ctx.fillStyle = "rgba(10, 14, 10, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = "#00ff00";
@@ -41,11 +41,11 @@ export function MatrixRain() {
         
         // Gradient effect - characters fade as they fall
         const opacity = Math.max(0, 1 - (drops[i] * fontSize) / canvas.height);
-        ctx.fillStyle = `rgba(0, 255, 0, ${opacity * 0.3})`;
+        ctx.fillStyle = `rgba(0, 255, 0, ${opacity * 0.15})`;
         
-        // Add glow effect for brighter characters
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = "rgba(0, 255, 0, 0.5)";
+        // Subtle glow effect
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = "rgba(0, 255, 0, 0.2)";
         
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
@@ -59,7 +59,7 @@ export function MatrixRain() {
       }
     }
 
-    const interval = setInterval(draw, 35);
+    const interval = setInterval(draw, 50);
 
     const handleResize = () => {
       canvas.width = window.innerWidth;
@@ -77,7 +77,7 @@ export function MatrixRain() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-20"
+      className="absolute inset-0 opacity-[0.06]"
       style={{ 
         pointerEvents: "none",
         position: "absolute",

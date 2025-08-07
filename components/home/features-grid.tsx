@@ -92,7 +92,7 @@ export function FeaturesGrid() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="border border-primary bg-background/50 p-4 font-mono text-base hover:bg-primary/5 hover:border-teal-400 transition-all"
+              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
@@ -101,7 +101,7 @@ export function FeaturesGrid() {
               {/* File header */}
               <div className="mb-3 pb-2 border-b border-primary/30">
                 <span className="text-primary">~/stack/</span>
-                <span className="text-teal-400 font-bold">{feature.title}</span>
+                <span className="text-primary group-hover:text-teal-400 font-bold transition-colors">{feature.title}</span>
               </div>
 
               {/* File content */}
@@ -131,7 +131,7 @@ export function FeaturesGrid() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="text-teal-400">[INFO] Battle-tested tech stack</div>
+          <div className="text-primary">[INFO] Battle-tested tech stack</div>
           <div>[INFO] Everything configured and ready</div>
           <div>[INFO] Full deployment in 21 days</div>
         </motion.div>

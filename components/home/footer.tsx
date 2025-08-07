@@ -11,17 +11,17 @@ export function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="text-primary mb-3 text-lg font-bold">
-              <span className="text-teal-400">labs@Pyro</span>
-              <span className="text-primary">:</span>
-              <span className="text-success">~</span>
-              <span className="text-primary">$</span>
+              <span className="text-primary">labs@Pyro</span>
+              <span className="text-teal-400">:</span>
+              <span className="text-primary">~</span>
+              <span className="text-teal-400">$</span>
               <span className="ml-2 text-base">whoami</span>
             </div>
             <div className="text-foreground/70 text-sm space-y-2">
               <div>Pyro Labs - Ship Fast. Ship Right.</div>
               <div>Building MVPs in 21 days since 2020</div>
               <div>500+ successful products delivered</div>
-              <div className="text-teal-400">96% client satisfaction rate</div>
+              <div className="text-primary"><span className="text-teal-400">96%</span> client satisfaction rate</div>
             </div>
             <div className="mt-4 flex gap-4">
               <a

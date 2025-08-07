@@ -73,7 +73,7 @@ export function CaseStudies() {
                 viewport={{ once: true }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
-                <Card className="group h-full overflow-hidden border border-primary/50 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_30px_rgba(0,212,212,0.3)] transition-all rounded-sm">
+                <Card className="group h-full overflow-hidden border border-primary/30 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all rounded-sm">
                   {/* Terminal Header */}
                   <div className="relative h-48 bg-background border-b border-primary/30 p-4 font-mono text-sm">
                     <div className="flex items-center gap-2 mb-3">
@@ -97,7 +97,7 @@ export function CaseStudies() {
 
                   <CardBody className="p-6 font-mono">
                     {/* Title & Description */}
-                    <h3 className="mb-2 text-xl font-semibold text-teal-400">
+                    <h3 className="mb-2 text-xl font-semibold text-primary group-hover:text-teal-400 transition-colors">
                       {study.name}
                     </h3>
                     <p className="mb-4 text-sm text-foreground/60">
@@ -148,10 +148,10 @@ export function CaseStudies() {
                 { label: "Client Retention", value: "89%" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-bold text-teal-400">
-                    {stat.value}
+                  <div className="text-2xl font-bold text-primary">
+                    <span className="text-teal-400">{stat.value}</span>
                   </div>
-                  <div className="mt-1 text-xs text-foreground/60">
+                  <div className="mt-1 text-xs text-primary/60">
                     {stat.label}
                   </div>
                 </div>

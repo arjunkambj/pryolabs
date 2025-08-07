@@ -184,7 +184,7 @@ export function Hero() {
           >
             <Button
               as={Link}
-              className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 transition-colors"
+              className="bg-primary text-background font-mono font-bold px-8 py-6 hover:bg-primary/80 hover:shadow-[0_0_15px_rgba(0,255,0,0.3)] transition-all"
               href="#get-started"
               size="lg"
             >
@@ -192,12 +192,12 @@ export function Hero() {
             </Button>
             <Button
               as={Link}
-              className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 transition-colors"
-              href="#process"
+              className="border-primary text-primary font-mono px-8 py-6 hover:bg-primary/10 hover:border-teal-400 hover:text-teal-400 transition-all"
+              href="#features"
               size="lg"
               variant="bordered"
             >
-              $ man pyro-process_
+              $ view --features_
             </Button>
           </motion.div>
 
@@ -215,8 +215,8 @@ export function Hero() {
             ].map((stat) => (
               <div key={stat.label} className="text-center font-mono">
                 <div className="text-xs text-primary/50">{stat.prefix}</div>
-                <div className="text-2xl font-bold text-success terminal-glow">
-                  {stat.value}
+                <div className="text-2xl font-bold text-primary">
+                  <span className="text-teal-400">{stat.value}</span>
                 </div>
                 <div className="text-xs text-primary/70 mt-1">
                   {stat.label}

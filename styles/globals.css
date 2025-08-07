@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* HeroUI Plugin and Sources */
+@plugin "./hero.ts";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../app/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
+
+/* Custom variant for dark mode */
+@custom-variant dark (&:is(.dark *));
+
+/* Terminal-style global styles */
+@layer base {
+  * {
+    font-family: var(--font-mono), monospace !important;
+  }
+  
+  body {
+    background: #0a0e0a;
+    color: #00ff00;
+  }
+
+  ::selection {
+    background: #00ff00;
+    color: #0a0e0a;
+  }
+
+  /* Terminal cursor blink */
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  .terminal-cursor {
+    animation: blink 1s infinite;
+  }
+
+  /* CRT scanline effect */
+  @keyframes scanline {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  .scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.1), transparent);
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Terminal glow effect */
+  .terminal-glow {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+
+  /* ASCII borders */
+  .ascii-border {
+    border: 1px solid #00ff00;
+    box-shadow: inset 0 0 0 1px #00ff00;
+  }
+}
+
+/* Custom border utilities */
+@layer utilities {
+  .border-terminal {
+    border-color: #00ff00;
+  }
+
+  .dark .border-terminal {
+    border-color: #00ff00;
+  }
+}

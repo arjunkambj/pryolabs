@@ -10,25 +10,25 @@ const mvpPackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  <span class='text-2xl font-bold'>PRICE: $5,999</span> (one-time)                       │",
-  "│  DELIVERY: 21 days                                     │",
-  "│  GUARANTEE: 100% money-back                           │",
+  "│  <span class='text-2xl font-bold'>PRICE: $5,999</span> (one-time)                        │",
+  "│  DELIVERY: 21 days                                      │",
+  "│  GUARANTEE: 100% money-back                             │",
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
   "│  <span class='text-teal'>INCLUDED FEATURES:</span>                                    │",
-  "│  ─────────────────                                     │",
-  "│  [✓] Discovery & Requirements Analysis                 │",
-  "│  [✓] UI/UX Design in Figma                            │",
-  "│  [✓] Responsive Frontend Development                   │",
-  "│  [✓] Backend API & Database                           │",
-  "│  [✓] Authentication & User Management                  │",
-  "│  [✓] Payment Integration                              │",
-  "│  [✓] Cloud Deployment & Hosting                       │",
-  "│  [✓] Analytics & Monitoring                           │",
-  "│  [✓] Documentation & Code Handover                    │",
-  "│  [✓] 1 Week Post-Launch Support                       │",
-  "│  [✓] Full Source Code Ownership                       │",
+  "│  ─────────────────                                      │",
+  "│  [✓] Discovery & Requirements Analysis                  │",
+  "│  [✓] UI/UX Design in Figma                              │",
+  "│  [✓] Responsive Frontend Development                    │",
+  "│  [✓] Backend API & Database                             │",
+  "│  [✓] Authentication & User Management                   │",
+  "│  [✓] Payment Integration                                │",
+  "│  [✓] Cloud Deployment & Hosting                         │",
+  "│  [✓] Analytics & Monitoring                             │",
+  "│  [✓] Documentation & Code Handover                      │",
+  "│  [✓] 1 Week Post-Launch Support                         │",
+  "│  [✓] Full Source Code Ownership                         │",
   "│                                                         │",
   "└─────────────────────────────────────────────────────────┘",
 ];
@@ -40,24 +40,24 @@ const enterprisePackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  <span class='text-2xl font-bold'>PRICE: Custom Quote</span>                             │",
-  "│  DELIVERY: Flexible timeline                           │",
-  "│  GUARANTEE: SLA-backed delivery                       │",
+  "│  <span class='text-2xl font-bold'>PRICE: Custom Quote</span>                          │",
+  "│  DELIVERY: Flexible timeline                            │",
+  "│  GUARANTEE: SLA-backed delivery                         │",
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  <span class='text-teal'>EVERYTHING IN MVP PLUS:</span>                               │",
-  "│  ──────────────────────                                │",
-  "│  [✓] Extended Development (30-90 days)                 │",
-  "│  [✓] Multiple Product Modules                         │",
-  "│  [✓] Advanced Integrations                            │",
-  "│  [✓] Team Training & Handover                         │",
-  "│  [✓] Priority Support                                 │",
-  "│  [✓] Quarterly Maintenance Updates                     │",
-  "│  [✓] Dedicated Project Manager                        │",
-  "│  [✓] Custom SLA Agreement                             │",
-  "│  [✓] White-label Options                              │",
-  "│  [✓] Performance Optimization                         │",
+  "│  <span class='text-teal'>EVERYTHING IN MVP PLUS:</span>                                │",
+  "│  ──────────────────────                                 │",
+  "│  [✓] Extended Development (30-90 days)                  │",
+  "│  [✓] Multiple Product Modules                           │",
+  "│  [✓] Advanced Integrations                              │",
+  "│  [✓] Team Training & Handover                           │",
+  "│  [✓] Priority Support                                   │",
+  "│  [✓] Quarterly Maintenance Updates                      │",
+  "│  [✓] Dedicated Project Manager                          │",
+  "│  [✓] Custom SLA Agreement                               │",
+  "│  [✓] White-label Options                                │",
+  "│  [✓] Performance Optimization                           │",
   "│                                                         │",
   "└─────────────────────────────────────────────────────────┘",
 ];
@@ -105,7 +105,7 @@ export function Pricing() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-auto">
+            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-hidden">
               {mvpPackage.map((line, i) => (
                 <motion.div
                   key={i}
@@ -127,11 +127,11 @@ export function Pricing() {
                       __html: line
                         .replace(
                           /\[✓\]/g,
-                          '<span class="text-teal-400">[✓]</span>',
+                          '<span class="text-teal-400">[✓]</span>'
                         )
                         .replace(
                           /INCLUDED FEATURES:/g,
-                          '<span class="text-teal-400">INCLUDED FEATURES:</span>',
+                          '<span class="text-teal-400">INCLUDED FEATURES:</span>'
                         ),
                     }}
                   />
@@ -147,7 +147,7 @@ export function Pricing() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, scale: 1 }}
           >
-            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-auto">
+            <pre className="text-primary font-mono text-[10px] sm:text-xs md:text-base leading-relaxed overflow-x-hidden">
               {enterprisePackage.map((line, i) => (
                 <motion.div
                   key={i}
@@ -167,11 +167,11 @@ export function Pricing() {
                       __html: line
                         .replace(
                           /\[✓\]/g,
-                          '<span class="text-teal-400">[✓]</span>',
+                          '<span class="text-teal-400">[✓]</span>'
                         )
                         .replace(
                           /EVERYTHING IN MVP PLUS:/g,
-                          '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>',
+                          '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>'
                         ),
                     }}
                   />

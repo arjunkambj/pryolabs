@@ -34,7 +34,7 @@ export function Hero() {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
         await new Promise((resolve) =>
-          setTimeout(resolve, terminalCommands[i].delay),
+          setTimeout(resolve, terminalCommands[i].delay)
         );
         setCurrentLine(i);
         const fullText =
@@ -61,7 +61,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-18">
+    <section className="relative min-h-screen  flex items-center justify-center overflow-hidden pt-36">
       {/* Matrix Rain Background */}
       <MatrixRain />
       {/* CRT scanline effect */}
@@ -128,8 +128,12 @@ export function Hero() {
                   <span className="w-3 h-3 rounded-full bg-warning/60" />
                   <span className="w-3 h-3 rounded-full bg-success/60" />
                 </div>
-                <span className="text-xs text-primary/50 font-mono">pyro-mvp-builder.sh</span>
-                <span className="text-xs text-primary/30 font-mono">~/projects</span>
+                <span className="text-xs text-primary/50 font-mono">
+                  pyro-mvp-builder.sh
+                </span>
+                <span className="text-xs text-primary/30 font-mono">
+                  ~/projects
+                </span>
               </div>
               {/* Terminal Content */}
               <div className="p-6 text-left font-mono text-sm min-h-[240px]">
@@ -137,40 +141,40 @@ export function Hero() {
                   [SYSTEM] Pyro Labs MVP Builder v2.0.0
                 </div>
 
-              {terminalCommands.map((cmd, i) => (
-                <div
-                  key={i}
-                  className={`mb-1 transition-opacity duration-300 ${
-                    i <= currentLine ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <span
-                    className={
-                      cmd.prompt === "✓ " ? "text-success" : "text-primary"
-                    }
+                {terminalCommands.map((cmd, i) => (
+                  <div
+                    key={i}
+                    className={`mb-1 transition-opacity duration-300 ${
+                      i <= currentLine ? "opacity-100" : "opacity-0"
+                    }`}
                   >
-                    {i <= currentLine ? cmd.prompt : ""}
-                  </span>
-                  <span
-                    className={
-                      cmd.prompt === "✓ "
-                        ? "text-success font-bold"
-                        : "text-foreground"
-                    }
-                  >
-                    {i < currentLine
-                      ? cmd.command
-                      : i === currentLine
-                        ? typedText.slice(cmd.prompt.length)
-                        : ""}
-                  </span>
-                  {i === currentLine && (
                     <span
-                      className={`inline-block w-2 h-4 bg-primary ml-1 ${showCursor ? "" : "opacity-0"}`}
-                    />
-                  )}
-                </div>
-              ))}
+                      className={
+                        cmd.prompt === "✓ " ? "text-success" : "text-primary"
+                      }
+                    >
+                      {i <= currentLine ? cmd.prompt : ""}
+                    </span>
+                    <span
+                      className={
+                        cmd.prompt === "✓ "
+                          ? "text-success font-bold"
+                          : "text-foreground"
+                      }
+                    >
+                      {i < currentLine
+                        ? cmd.command
+                        : i === currentLine
+                          ? typedText.slice(cmd.prompt.length)
+                          : ""}
+                    </span>
+                    {i === currentLine && (
+                      <span
+                        className={`inline-block w-2 h-4 bg-primary ml-1 ${showCursor ? "" : "opacity-0"}`}
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -218,9 +222,7 @@ export function Hero() {
                 <div className="text-2xl font-bold text-primary">
                   <span className="text-teal-400">{stat.value}</span>
                 </div>
-                <div className="text-xs text-primary/70 mt-1">
-                  {stat.label}
-                </div>
+                <div className="text-xs text-primary/70 mt-1">{stat.label}</div>
               </div>
             ))}
           </motion.div>

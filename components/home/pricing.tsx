@@ -16,7 +16,7 @@ const mvpPackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  INCLUDED FEATURES:                                    │",
+  "│  <span class='text-teal'>INCLUDED FEATURES:</span>                                    │",
   "│  ─────────────────                                     │",
   "│  [✓] Discovery & Requirements Analysis                 │",
   "│  [✓] UI/UX Design in Figma                            │",
@@ -47,7 +47,7 @@ const enterprisePackage = [
   "│                                                         │",
   "├─────────────────────────────────────────────────────────┤",
   "│                                                         │",
-  "│  EVERYTHING IN MVP PLUS:                               │",
+  "│  <span class='text-teal'>EVERYTHING IN MVP PLUS:</span>                               │",
   "│  ──────────────────────                                │",
   "│  [✓] Extended Development (30-90 days)                 │",
   "│  [✓] Multiple Product Modules                         │",
@@ -102,17 +102,21 @@ export function Pricing() {
                   animate={{ opacity: 1 }}
                   className={
                     line.includes("$5,999")
-                      ? "text-success font-bold terminal-glow"
-                      : line.includes("[✓]")
-                        ? "text-success"
-                        : line.includes("MVP PACKAGE")
-                          ? "text-teal-400 font-bold"
+                      ? "text-teal-400 font-bold"
+                      : line.includes("MVP PACKAGE")
+                        ? "text-primary font-bold"
+                        : line.includes("INCLUDED FEATURES")
+                          ? "text-primary"
                           : "text-primary"
                   }
                   initial={{ opacity: 0 }}
                   transition={{ delay: i * 0.02 }}
                 >
-                  {line}
+                  <span dangerouslySetInnerHTML={{
+                    __html: line
+                      .replace(/\[✓\]/g, '<span class="text-teal-400">[✓]</span>')
+                      .replace(/INCLUDED FEATURES:/g, '<span class="text-teal-400">INCLUDED FEATURES:</span>')
+                  }} />
                 </motion.div>
               ))}
             </pre>
@@ -132,17 +136,19 @@ export function Pricing() {
                   animate={{ opacity: 1 }}
                   className={
                     line.includes("Custom Quote")
-                      ? "text-teal-400 font-bold terminal-glow-cyan"
-                      : line.includes("[✓]")
-                        ? "text-success"
-                        : line.includes("ENTERPRISE PACKAGE")
-                          ? "text-secondary font-bold"
-                          : "text-primary"
+                      ? "text-teal-400 font-bold"
+                      : line.includes("ENTERPRISE PACKAGE")
+                        ? "text-primary font-bold"
+                        : "text-primary"
                   }
                   initial={{ opacity: 0 }}
                   transition={{ delay: i * 0.02 }}
                 >
-                  {line}
+                  <span dangerouslySetInnerHTML={{
+                    __html: line
+                      .replace(/\[✓\]/g, '<span class="text-teal-400">[✓]</span>')
+                      .replace(/EVERYTHING IN MVP PLUS:/g, '<span class="text-teal-400">EVERYTHING IN MVP PLUS:</span>')
+                  }} />
                 </motion.div>
               ))}
             </pre>

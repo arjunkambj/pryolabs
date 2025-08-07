@@ -61,7 +61,7 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <section className="py-24 bg-content1/5" id="features">
+    <section className="py-24 bg-background" id="features">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -101,7 +101,7 @@ export function FeaturesGrid() {
               {/* File header */}
               <div className="mb-3 pb-2 border-b border-primary/30">
                 <span className="text-primary">~/stack/</span>
-                <span className="text-primary group-hover:text-teal-400 font-bold transition-colors">{feature.title}</span>
+                <span className="text-teal-400 font-bold">{feature.title}</span>
               </div>
 
               {/* File content */}

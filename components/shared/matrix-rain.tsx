@@ -15,7 +15,8 @@ export function MatrixRain() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const matrix = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const matrix =
+      "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const matrixArray = matrix.split("");
 
     const fontSize = 10;
@@ -28,7 +29,7 @@ export function MatrixRain() {
 
     function draw() {
       if (!ctx || !canvas) return;
-      
+
       // Black background with opacity for trail effect
       ctx.fillStyle = "rgba(10, 14, 10, 0.08)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -37,16 +38,17 @@ export function MatrixRain() {
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
-        const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-        
+        const text =
+          matrixArray[Math.floor(Math.random() * matrixArray.length)];
+
         // Gradient effect - characters fade as they fall
         const opacity = Math.max(0, 1 - (drops[i] * fontSize) / canvas.height);
         ctx.fillStyle = `rgba(0, 255, 0, ${opacity * 0.15})`;
-        
+
         // Subtle glow effect
         ctx.shadowBlur = 2;
         ctx.shadowColor = "rgba(0, 255, 0, 0.2)";
-        
+
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         // Reset drop to top when it reaches bottom
@@ -77,8 +79,8 @@ export function MatrixRain() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-[0.06]"
-      style={{ 
+      className="absolute inset-0 opacity-[0.05]"
+      style={{
         pointerEvents: "none",
         position: "absolute",
         top: 0,

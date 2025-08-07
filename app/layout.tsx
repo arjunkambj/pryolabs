@@ -36,9 +36,10 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-dvh text-foreground bg-background font-sans antialiased",
+          "min-h-dvh text-foreground font-sans antialiased",
           fontSans.variable,
         )}
+        style={{ backgroundColor: '#0a0e0a' }}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <GlitchEffect />

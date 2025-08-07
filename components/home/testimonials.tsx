@@ -37,7 +37,7 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-content1/5" id="testimonials">
+    <section className="py-24 bg-background" id="testimonials">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -84,9 +84,7 @@ export function Testimonials() {
 
               {/* Review Content */}
               <div className="mb-3">
-                <div className="text-sm text-primary mb-2">
-                  {review.rating}
-                </div>
+                <div className="text-sm text-primary mb-2">{review.rating}</div>
                 <p className="text-base text-foreground/80 leading-relaxed">
                   {review.review}
                 </p>
@@ -110,7 +108,8 @@ export function Testimonials() {
         >
           <div className="inline-block border border-primary/30 bg-background/50 px-6 py-3 shadow-[0_0_15px_rgba(0,255,0,0.1)]">
             <div className="text-base text-primary">
-              <span className="text-teal-400">✓</span> All checks passed • <span className="text-teal-400">96%</span> approval rate
+              <span className="text-teal-400">✓</span> All checks passed •{" "}
+              <span className="text-teal-400">96%</span> approval rate
             </div>
             <div className="text-sm text-primary/50 mt-1">
               500+ successful deployments

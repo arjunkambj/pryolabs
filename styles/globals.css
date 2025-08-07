@@ -16,10 +16,18 @@
   }
   
   body {
-    background: #0a0e0a;
+    background: #0a0e0a !important;
     color: #00ff00;
     font-size: 16px;
     line-height: 1.6;
+  }
+  
+  .bg-background {
+    background: #0a0e0a !important;
+  }
+  
+  .bg-content1\/5 {
+    background: rgba(15, 20, 15, 0.3) !important;
   }
 
   h1 { font-size: 3rem; }

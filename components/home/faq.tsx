@@ -58,7 +58,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-content1/5" id="faq">
+    <section className="py-24 bg-background" id="faq">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -103,7 +103,7 @@ export function FAQ() {
                   <span className="text-primary">
                     {openIndex === index ? "▼" : "▶"}
                   </span>
-                  <span className="text-primary text-base">{faq.command}</span>
+                  <span className="text-teal-400 text-base">{faq.command}</span>
                   <span className="text-primary/50 text-base">--</span>
                   <span className="text-foreground/80 text-base">
                     {faq.question}
@@ -130,7 +130,8 @@ export function FAQ() {
             Still have questions?
             <br />
             <span className="text-primary">
-              $ contact --email=<span className="text-teal-400">hello@pyrolabs.io</span>
+              $ contact --email=
+              <span className="text-teal-400">hello@pyrolabs.io</span>
             </span>
           </div>
         </div>

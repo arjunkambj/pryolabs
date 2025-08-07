@@ -163,7 +163,7 @@ export function ProcessTimeline() {
               $ git checkout -b your-mvp
             </div>
             <div className="text-xs text-primary/50 mt-1">
-              Ready to start your project? Let's begin the sprint.
+              Ready to start your project? Let&apos;s begin the sprint.
             </div>
           </div>
         </motion.div>

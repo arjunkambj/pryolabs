@@ -6,7 +6,6 @@ import { Footer } from "@/components/home/footer";
 import { Hero } from "@/components/home/hero";
 import { Navbar } from "@/components/home/navbar";
 import { Pricing } from "@/components/home/pricing";
-import { ProcessTimeline } from "@/components/home/process-timeline";
 import { Testimonials } from "@/components/home/testimonials";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <ProcessTimeline />
         <FeaturesGrid />
         <CaseStudies />
         <Testimonials />

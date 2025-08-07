@@ -17,7 +17,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link className="flex items-center gap-2 font-mono" href="/">
-            <span className="text-primary font-bold">root@pyro</span>
+            <span className="text-primary font-bold">labs@Pyro</span>
             <span className="text-secondary">:</span>
             <span className="text-success">~</span>
             <span className="text-primary">$</span>
@@ -29,11 +29,11 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                className="font-mono text-sm text-primary/70 hover:text-primary transition-colors"
+                className="font-mono text-sm text-primary/70 hover:text-primary transition-all group"
                 href={item.href}
               >
-                <span className="text-primary/50">$ </span>
-                <span className="hover:terminal-glow">
+                <span className="text-primary/50 group-hover:text-teal-400 transition-colors">$ </span>
+                <span className="group-hover:text-teal-400 group-hover:text-shadow-[0_0_8px_rgba(0,212,212,0.6)] transition-all">
                   {item.cmd} {item.label.toLowerCase()}
                 </span>
               </Link>
@@ -42,18 +42,11 @@ export function Navbar() {
 
           {/* CTA */}
           <Link
-            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-primary/80 transition-colors"
+            className="font-mono text-sm bg-primary text-background px-4 py-2 hover:bg-teal-400 hover:shadow-[0_0_15px_rgba(0,212,212,0.5)] transition-all"
             href="#get-started"
           >
             $ contact --now_
           </Link>
-        </div>
-
-        {/* Command line hint */}
-        <div className="hidden md:block pb-2">
-          <div className="font-mono text-xs text-primary/30">
-            Type 'help' for available commands | Use TAB for autocomplete
-          </div>
         </div>
       </div>
     </nav>

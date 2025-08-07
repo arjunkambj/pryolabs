@@ -8,7 +8,7 @@ const reviews = [
     avatar: "SC",
     rating: "⭐⭐⭐⭐⭐",
     review:
-      "LGTM! Pyro Labs delivered our MVP in 19 days. Production quality code, great architecture. We went from idea to $50K MRR in under 3 months. Would definitely work with again.",
+      "LGTM! Pyro Labs delivered our MVP in 19 days. Clean code, great architecture, amazing documentation. Would definitely work with them again.",
     approved: true,
     changes: "+8,420 -0",
     files: "156 files",
@@ -18,7 +18,7 @@ const reviews = [
     avatar: "MR",
     rating: "⭐⭐⭐⭐⭐",
     review:
-      "Approved ✅ The quality and speed were unmatched. Clean code, proper tests, excellent documentation. Our investors were blown away by what we accomplished in just 3 weeks.",
+      "Approved ✅ The quality and speed were unmatched. Professional team, excellent communication, delivered exactly what we needed.",
     approved: true,
     changes: "+5,200 -180",
     files: "89 files",
@@ -28,7 +28,7 @@ const reviews = [
     avatar: "EW",
     rating: "⭐⭐⭐⭐⭐",
     review:
-      "Ship it! 🚀 We saved 6 months and $200K by working with Pyro Labs. Code quality exceeds our internal standards. Best decision for our startup.",
+      "Ship it! 🚀 Best decision for our startup. They understood our vision and delivered a production-ready product that exceeded expectations.",
     approved: true,
     changes: "+12,350 -420",
     files: "234 files",
@@ -37,7 +37,7 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-content1/10" id="testimonials">
+    <section className="py-24 bg-content1/5" id="testimonials">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -46,10 +46,10 @@ export function Testimonials() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="font-mono text-sm text-primary/50 mb-4">
-            $ git log --grep=\"review\" --pretty=format
+          <div className="font-mono text-base text-primary/50 mb-4">
+            $ git log --grep=&quot;review&quot; --pretty=format
           </div>
-          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             CODE REVIEWS FROM FOUNDERS
           </h2>
         </motion.div>
@@ -59,7 +59,7 @@ export function Testimonials() {
           {reviews.map((review, index) => (
             <motion.div
               key={review.author}
-              className="border border-primary/30 bg-background/50 p-4 font-mono hover:border-primary/50 transition-colors"
+              className="border border-primary/30 bg-background/50 p-4 font-mono text-base hover:border-teal-400 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
@@ -68,13 +68,15 @@ export function Testimonials() {
               {/* Header */}
               <div className="flex items-center justify-between mb-3 pb-3 border-b border-primary/20">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-primary/20 rounded flex items-center justify-center text-xs text-primary font-bold">
+                  <div className="w-8 h-8 bg-primary/20 rounded flex items-center justify-center text-sm text-primary font-bold">
                     {review.avatar}
                   </div>
-                  <span className="text-sm text-primary">@{review.author}</span>
+                  <span className="text-base text-primary">
+                    @{review.author}
+                  </span>
                 </div>
                 {review.approved && (
-                  <span className="text-xs text-success font-bold">
+                  <span className="text-sm text-success font-bold">
                     ✓ APPROVED
                   </span>
                 )}
@@ -82,16 +84,16 @@ export function Testimonials() {
 
               {/* Review Content */}
               <div className="mb-3">
-                <div className="text-xs text-secondary mb-2">
+                <div className="text-sm text-teal-400 mb-2">
                   {review.rating}
                 </div>
-                <p className="text-sm text-foreground/80 leading-relaxed">
+                <p className="text-base text-foreground/80 leading-relaxed">
                   {review.review}
                 </p>
               </div>
 
               {/* Stats */}
-              <div className="flex items-center justify-between text-xs text-primary/50 pt-3 border-t border-primary/20">
+              <div className="flex items-center justify-between text-sm text-primary/50 pt-3 border-t border-primary/20">
                 <span>{review.files}</span>
                 <span className="text-success">{review.changes}</span>
               </div>
@@ -107,10 +109,10 @@ export function Testimonials() {
           whileInView={{ opacity: 1 }}
         >
           <div className="inline-block border border-success/30 bg-success/5 px-6 py-3">
-            <div className="text-sm text-success">
+            <div className="text-base text-success">
               ✓ All checks passed • 96% approval rate
             </div>
-            <div className="text-xs text-success/50 mt-1">
+            <div className="text-sm text-success/50 mt-1">
               500+ successful deployments
             </div>
           </div>

@@ -18,13 +18,13 @@
   body {
     background: #0a0e0a;
     color: #00ff00;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
   }
 
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.5rem; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 2rem; }
   p { line-height: 1.8; }
   
   section {
@@ -80,6 +80,39 @@
 
   .terminal-glow-cyan {
     text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  }
+
+  /* Teal accent color */
+  .text-teal-400 {
+    color: #00d4d4;
+  }
+  
+  .text-teal-500 {
+    color: #00a8a8;
+  }
+  
+  .bg-teal-400 {
+    background-color: #00d4d4;
+  }
+  
+  .bg-teal-500 {
+    background-color: #00a8a8;
+  }
+  
+  .border-teal-400 {
+    border-color: #00d4d4;
+  }
+  
+  .hover\:text-teal-400:hover {
+    color: #00d4d4;
+  }
+  
+  .hover\:bg-teal-400:hover {
+    background-color: #00d4d4;
+  }
+  
+  .hover\:border-teal-400:hover {
+    border-color: #00d4d4;
   }
 
   /* ASCII borders */

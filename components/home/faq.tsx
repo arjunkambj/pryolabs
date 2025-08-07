@@ -5,40 +5,52 @@ import { useState } from "react";
 
 const faqs = [
   {
-    command: "man pyro-deliver",
-    question: "How do you deliver MVPs so fast?",
+    command: "man how-fast",
+    question: "How do you deliver MVPs in just 21 days?",
     answer:
-      "A proven, repeatable playbook: scoped outcomes, parallel workstreams (design, backend, frontend), battle-tested templates, and tight async communication. No reinventing the wheel.",
+      "We use a proven process: Week 1 for design and planning, Week 2 for building core features, Week 3 for polish and deployment. No delays, no scope creep, just focused execution.",
   },
   {
     command: "man tech-stack",
-    question: "What tech stack do you use?",
+    question: "What technologies do you use?",
     answer:
-      "Next.js, Node.js, Postgres, Prisma, HeroUI (NextUI), Tailwind, Stripe, OAuth/JWT, and Vercel/Fly/Render for deploy. We adapt to your constraints when needed.",
+      "Figma for design, Next.js for frontend, Supabase or Convex for backend, Vercel for hosting, Stripe for payments, and Clerk for authentication. Modern, reliable, scalable.",
   },
   {
-    command: "man post-launch",
-    question: "What if I need changes after delivery?",
+    command: "man after-launch",
+    question: "What happens after the MVP is delivered?",
     answer:
-      "We include 1 week of post-launch support for tweaks and fixes. For larger iterations, we can schedule a scoped follow-on sprint.",
+      "You get 1 week of free support for fixes and minor tweaks. We also provide full documentation and code handover. For major updates, we offer additional sprint packages.",
   },
   {
     command: "man ownership",
-    question: "Who owns the IP and code?",
+    question: "Do I own everything you build?",
     answer:
-      "You do. All deliverables, repos, and cloud assets are transferred at the end of the engagement.",
+      "Yes, 100%. All code, designs, documentation, and intellectual property belong to you. We transfer everything to your GitHub and hosting accounts.",
   },
   {
     command: "man pricing",
-    question: "What's included in the $5,999 package?",
+    question: "What does $5,999 include?",
     answer:
-      "Design system, landing page, backend API, auth & RBAC, Stripe subscriptions, admin dashboard, CI/CD & production deploy, 21-day delivery, 1 week support.",
+      "Everything needed for a working product: design, frontend, backend, database, authentication, payments, deployment, and 1 week of support. No hidden fees.",
   },
   {
     command: "man guarantee",
-    question: "What if I'm not happy with the result?",
+    question: "What if I'm not satisfied?",
     answer:
-      "Money-back guarantee. If we miss the mark and can't make it right within the scope, we'll refund you.",
+      "We offer a 100% money-back guarantee. If we can't deliver what we promised within 21 days, you get a full refund. Simple as that.",
+  },
+  {
+    command: "man process",
+    question: "How do you work with clients?",
+    answer:
+      "We communicate daily via Slack or Discord. You get access to a private channel, daily updates, and can review progress anytime. Full transparency throughout.",
+  },
+  {
+    command: "man team",
+    question: "Who will work on my project?",
+    answer:
+      "A dedicated team of 2-3 experts: a designer, a full-stack developer, and a project lead. All senior-level with 5+ years of experience building products.",
   },
 ];
 
@@ -46,7 +58,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24" id="faq">
+    <section className="py-24 bg-content1/5" id="faq">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -55,31 +67,23 @@ export function FAQ() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="font-mono text-sm text-primary/50 mb-4">
-            $ man pyro | grep -E \"faq|help\"
+          <div className="font-mono text-base text-primary/50 mb-4">
+            $ man pyro | grep -E &quot;faq|help&quot;
           </div>
-          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
-            PYRO(1) - User Manual
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            FREQUENTLY ASKED QUESTIONS
           </h2>
-          <p className="font-mono text-sm text-primary/70">
-            Version 2.0.0 | Last updated: {new Date().toLocaleDateString()}
+          <p className="font-mono text-base text-primary/70">
+            Everything you need to know about our service
           </p>
         </motion.div>
 
         {/* FAQ List */}
         <div className="border border-primary/30 bg-background/50 p-6 font-mono">
-          <div className="mb-4 text-xs text-primary/50">
-            NAME
+          <div className="mb-4 text-sm text-primary/50">
+            PYRO LABS FAQ v2.0.0
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;pyro - MVP development service
-            <br />
-            <br />
-            SYNOPSIS
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;pyro [OPTIONS] --project=NAME --days=21
-            <br />
-            <br />
-            FREQUENTLY ASKED QUESTIONS
+            Select a topic to learn more:
           </div>
 
           {faqs.map((faq, index) => (
@@ -96,12 +100,12 @@ export function FAQ() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="flex items-center gap-2 py-2 hover:bg-primary/5 transition-colors px-2 -mx-2">
-                  <span className="text-primary">
+                  <span className="text-teal-400">
                     {openIndex === index ? "▼" : "▶"}
                   </span>
-                  <span className="text-success text-sm">{faq.command}</span>
-                  <span className="text-primary/50 text-sm">--</span>
-                  <span className="text-foreground/80 text-sm">
+                  <span className="text-success text-base">{faq.command}</span>
+                  <span className="text-primary/50 text-base">--</span>
+                  <span className="text-foreground/80 text-base">
                     {faq.question}
                   </span>
                 </div>
@@ -110,35 +114,24 @@ export function FAQ() {
               {openIndex === index && (
                 <motion.div
                   animate={{ opacity: 1, height: "auto" }}
-                  className="ml-6 pl-4 border-l border-primary/20 mt-2 mb-4"
+                  className="ml-6 pl-4 border-l border-teal-400/30 mt-2 mb-4"
                   exit={{ opacity: 0, height: 0 }}
                   initial={{ opacity: 0, height: 0 }}
                 >
-                  <div className="text-sm text-foreground/70 leading-relaxed">
-                    DESCRIPTION:
-                    <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;{faq.answer}
+                  <div className="text-base text-foreground/70 leading-relaxed">
+                    {faq.answer}
                   </div>
                 </motion.div>
               )}
             </motion.div>
           ))}
 
-          <div className="mt-8 pt-4 border-t border-primary/30 text-xs text-primary/50">
-            SEE ALSO
+          <div className="mt-8 pt-4 border-t border-primary/30 text-sm text-primary/50">
+            Still have questions?
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;pricing(1), portfolio(1), contact(1)
-            <br />
-            <br />
-            AUTHORS
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Pyro Labs Development Team
-            &lt;team@pyro.dev&gt;
-            <br />
-            <br />
-            COPYRIGHT
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;© 2024 Pyro Labs. All rights reserved.
+            <span className="text-teal-400">
+              $ contact --email=hello@pyrolabs.io
+            </span>
           </div>
         </div>
       </div>

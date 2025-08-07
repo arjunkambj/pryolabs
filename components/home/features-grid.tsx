@@ -6,62 +6,62 @@ const features = [
   {
     title: "design.config",
     items: [
-      "ui_framework: 'figma'",
+      "tool: 'Figma'",
       "responsive: true",
-      "components: 50+",
-      "design_system: true",
+      "pages: 10-15",
+      "iterations: unlimited",
     ],
   },
   {
-    title: "backend.yml",
+    title: "frontend.yml",
     items: [
-      "runtime: node_v20",
-      "database: postgresql",
-      "api: rest_graphql",
-      "auth: jwt_oauth",
+      "framework: Next.js",
+      "styling: TailwindCSS",
+      "components: React",
+      "typescript: enabled",
     ],
   },
   {
-    title: "security.lock",
+    title: "backend.json",
     items: [
-      "encryption: AES-256",
-      "rbac: enabled",
+      "database: Supabase/Convex",
+      "api: REST/GraphQL",
+      "realtime: WebSockets",
+      "cloud: Serverless",
+    ],
+  },
+  {
+    title: "auth.lock",
+    items: [
+      "provider: Clerk",
+      "oauth: Google/GitHub",
       "2fa: supported",
+      "rbac: configured",
+    ],
+  },
+  {
+    title: "payment.sh",
+    items: [
+      "gateway: Stripe",
+      "subscriptions: yes",
+      "webhooks: automated",
+      "invoices: generated",
+    ],
+  },
+  {
+    title: "deploy.config",
+    items: [
+      "hosting: Vercel",
+      "ci_cd: automated",
+      "monitoring: included",
       "ssl: enforced",
-    ],
-  },
-  {
-    title: "payment.json",
-    items: [
-      "provider: 'stripe'",
-      "subscriptions: true",
-      "webhooks: configured",
-      "pci: compliant",
-    ],
-  },
-  {
-    title: "deploy.sh",
-    items: [
-      "hosting: aws_vercel",
-      "ci_cd: github_actions",
-      "monitoring: enabled",
-      "scaling: automatic",
-    ],
-  },
-  {
-    title: "package.json",
-    items: [
-      "react: '^18.0.0'",
-      "next: '^14.0.0'",
-      "typescript: '^5.0.0'",
-      "tailwind: '^3.0.0'",
     ],
   },
 ];
 
 export function FeaturesGrid() {
   return (
-    <section className="py-24" id="features">
+    <section className="py-24 bg-content1/5" id="features">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -70,18 +70,21 @@ export function FeaturesGrid() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div className="font-mono text-sm text-primary/50 mb-4">
+          <div className="font-mono text-base text-primary/50 mb-4">
             $ cat /pyro/features/* | head -50
           </div>
-          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             ═══════════════════════════════════════
           </h2>
-          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
-            SYSTEM CAPABILITIES
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
+            SYSTEM FEATURES
           </h2>
-          <h2 className="text-3xl font-mono font-bold text-primary mb-4">
+          <h2 className="text-4xl font-mono font-bold text-primary mb-4">
             ═══════════════════════════════════════
           </h2>
+          <p className="font-mono text-base text-primary/70 mt-4">
+            Our proven tech stack for building your MVP
+          </p>
         </motion.div>
 
         {/* Features Grid */}
@@ -89,7 +92,7 @@ export function FeaturesGrid() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="border border-primary bg-background/50 p-4 font-mono text-sm hover:bg-primary/5 transition-colors"
+              className="border border-primary bg-background/50 p-4 font-mono text-base hover:bg-primary/5 hover:border-teal-400 transition-all"
               initial={{ opacity: 0, y: 20 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
@@ -97,8 +100,8 @@ export function FeaturesGrid() {
             >
               {/* File header */}
               <div className="mb-3 pb-2 border-b border-primary/30">
-                <span className="text-primary">~/config/</span>
-                <span className="text-success font-bold">{feature.title}</span>
+                <span className="text-primary">~/stack/</span>
+                <span className="text-teal-400 font-bold">{feature.title}</span>
               </div>
 
               {/* File content */}
@@ -114,7 +117,7 @@ export function FeaturesGrid() {
               </div>
 
               {/* File footer */}
-              <div className="mt-3 pt-2 border-t border-primary/30 text-xs text-primary/30">
+              <div className="mt-3 pt-2 border-t border-primary/30 text-sm text-primary/30">
                 :wq [saved]
               </div>
             </motion.div>
@@ -123,14 +126,14 @@ export function FeaturesGrid() {
 
         {/* Bottom message */}
         <motion.div
-          className="mt-16 text-center font-mono text-sm text-primary/50"
+          className="mt-16 text-center font-mono text-base text-primary/50"
           initial={{ opacity: 0 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
         >
-          <div>[INFO] All features included in base package</div>
-          <div>[INFO] No additional configuration required</div>
-          <div>[INFO] Ready to deploy in 21 days</div>
+          <div className="text-teal-400">[INFO] Battle-tested tech stack</div>
+          <div>[INFO] Everything configured and ready</div>
+          <div>[INFO] Full deployment in 21 days</div>
         </motion.div>
       </div>
     </section>

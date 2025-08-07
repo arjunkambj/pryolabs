@@ -83,6 +83,7 @@ export function Hero() {
   const [currentLine, setCurrentLine] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loginTime, setLoginTime] = useState<string>("");
 
   // Counter animations
   const mvpCount = useMotionValue(0);
@@ -96,6 +97,17 @@ export function Hero() {
   useEffect(() => {
     // Trigger load animation
     setTimeout(() => setIsLoaded(true), 100);
+
+    // Set login time to avoid hydration mismatch
+    setLoginTime(
+      new Date().toLocaleString("en-US", {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+    );
 
     // Animate counters
     const mvpAnimation = animate(mvpCount, 24, { duration: 2, delay: 2.5 });
@@ -286,14 +298,7 @@ export function Hero() {
                 <div className="relative">
                   <div className="mb-4 text-teal-400 text-xs font-medium">
                     <span className="text-primary/50">Last login:</span>{" "}
-                    {new Date().toLocaleString("en-US", {
-                      weekday: "short",
-                      month: "short",
-                      day: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}{" "}
-                    <span className="text-primary/50">on</span>{" "}
+                    {loginTime} <span className="text-primary/50">on</span>{" "}
                     <span className="text-teal-400">ttys001</span>
                   </div>
 

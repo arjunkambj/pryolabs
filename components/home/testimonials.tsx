@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const reviews = [
   {
@@ -128,6 +130,24 @@ export function Testimonials() {
               3 successful deployments
             </div>
           </div>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          className="mt-8 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <Button
+            as={Link}
+            className="bg-primary text-background font-mono px-6 sm:px-8 py-2 hover:bg-primary/90 transition-colors text-sm sm:text-base"
+            href="#get-started"
+            size="md"
+          >
+            Join Our Success Stories
+          </Button>
         </motion.div>
       </div>
     </section>

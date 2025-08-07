@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -164,16 +165,19 @@ export function Pricing() {
 
                 {/* CTA Button */}
                 <div className="mt-6 pt-4 border-t border-primary/30">
-                  <Link
-                    className={`block text-center py-3 px-6 font-bold transition-all duration-300 ${
+                  <Button
+                    as={Link}
+                    className={`w-full font-mono px-6 py-2 transition-colors text-sm sm:text-base ${
                       pkg.popular
-                        ? "bg-teal-400 text-background hover:bg-teal-400/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)]"
-                        : "bg-primary text-background hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)]"
+                        ? "bg-primary text-background hover:bg-primary/90"
+                        : "border border-primary/50 text-primary/80 hover:border-primary/70 hover:text-primary bg-transparent"
                     }`}
                     href={pkg.ctaLink}
+                    size="md"
+                    variant={pkg.popular ? "solid" : "bordered"}
                   >
                     {pkg.cta}
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </motion.div>

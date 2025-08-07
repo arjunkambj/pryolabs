@@ -1,7 +1,9 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -146,13 +148,23 @@ export function FAQ() {
             </motion.div>
           ))}
 
-          <div className="mt-8 pt-4 border-t border-primary/30 text-sm text-primary/50">
-            Still have questions?
-            <br />
-            <span className="text-primary">
-              $ contact --email=
-              <span className="text-teal-400">hello@pyrolabs.io</span>
-            </span>
+          <div className="mt-8 pt-4 border-t border-primary/30 text-center">
+            <div className="text-sm text-primary/50 mb-4">
+              Still have questions?
+              <br />
+              <span className="text-primary">
+                $ contact --email=
+                <span className="text-teal-400">hello@pyrolabs.io</span>
+              </span>
+            </div>
+            <Button
+              as={Link}
+              className="bg-primary text-background font-mono px-6 sm:px-8 py-2 hover:bg-primary/90 transition-colors text-sm sm:text-base"
+              href="#get-started"
+              size="md"
+            >
+              Get Started Now
+            </Button>
           </div>
         </div>
       </div>

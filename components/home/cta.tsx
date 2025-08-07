@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -36,7 +37,7 @@ export function CTA() {
 
           {/* Terminal Content */}
           <div className="space-y-6">
-            <div className="text-2xl sm:text-3xl font-bold text-primary terminal-glow mb-2">
+            <div className="text-2xl sm:text-3xl font-bold text-primary mb-2">
               2 Slots Available for this month
             </div>
             <div className="text-sm sm:text-base text-foreground/70">
@@ -44,22 +45,28 @@ export function CTA() {
             </div>
 
             {/* Terminal prompt display */}
-            <div className="flex items-center justify-center gap-2 text-lg">
-              <span className="text-primary">labs@Pyro</span>
-              <span className="text-teal-400">$</span>
-              <span className="text-primary">_</span>
-              <span
-                className={`w-2 h-5 bg-primary ${showCursor ? "" : "opacity-0"}`}
-              />
+            <div className="bg-black/50 border border-primary/20 p-4 rounded-sm font-mono text-left max-w-md mx-auto">
+              <div className="text-xs text-primary/50 mb-2">
+                ~/projects/mvp-builder
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-teal-400">$</span>
+                <span className="text-primary">./book-slot.sh</span>
+                <span
+                  className={`w-2 h-4 bg-teal-400 ${showCursor ? "" : "opacity-0"}`}
+                />
+              </div>
             </div>
 
             {/* CTA Button */}
-            <Link
-              className="inline-block bg-primary text-background font-bold py-3 sm:py-4 px-8 sm:px-12 hover:bg-primary/80 hover:shadow-[0_0_20px_rgba(0,212,212,0.3)] transition-all duration-300 text-sm sm:text-base mt-6 uppercase"
+            <Button
+              as={Link}
+              className="bg-primary text-background font-mono px-8 py-2 hover:bg-primary/90 transition-colors text-sm sm:text-base"
               href="mailto:hello@pyrolabs.io?subject=MVP%20Project%20Inquiry"
+              size="md"
             >
-              BOOK YOUR SLOT [ENTER] ⏎
-            </Link>
+              Book Your Slot
+            </Button>
           </div>
         </motion.div>
 

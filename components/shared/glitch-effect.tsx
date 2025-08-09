@@ -8,8 +8,8 @@ export function GlitchEffect() {
   useEffect(() => {
     const interval = setInterval(() => {
       setGlitch(true);
-      setTimeout(() => setGlitch(false), 200);
-    }, 10000); // Glitch every 10 seconds
+      setTimeout(() => setGlitch(false), 100);
+    }, 3000); // Glitch every 3 seconds
 
     return () => clearInterval(interval);
   }, []);

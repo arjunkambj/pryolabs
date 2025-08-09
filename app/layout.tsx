@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-dvh text-foreground font-sans overflow-x-hidden w-full antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
         style={{ backgroundColor: "#050705" }}
       >

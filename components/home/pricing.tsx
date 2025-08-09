@@ -48,13 +48,13 @@ const pkgs = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-background">
+    <section className="py-20 bg-background" id="pricing">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
           <div className="font-mono text-base text-primary/50">
             $ cat /etc/pricing.conf
@@ -68,11 +68,11 @@ export default function Pricing() {
           {pkgs.map((pkg, index) => (
             <motion.div
               key={pkg.name}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.08 * index }}
               className="relative"
+              initial={{ opacity: 0, y: 12 }}
+              transition={{ delay: 0.08 * index }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
@@ -132,13 +132,13 @@ export default function Pricing() {
                 <div className="mt-6 border-t border-primary/30 pt-4">
                   <Button
                     as={Link}
-                    href={pkg.ctaLink}
-                    size="md"
                     className={`w-full px-6 py-2 text-sm ${
                       pkg.popular
                         ? "bg-primary text-background hover:bg-primary/90"
                         : "border border-primary/50 text-primary/80 hover:border-primary/70 hover:text-primary bg-transparent"
                     }`}
+                    href={pkg.ctaLink}
+                    size="md"
                     variant={pkg.popular ? "solid" : "bordered"}
                   >
                     {pkg.cta}

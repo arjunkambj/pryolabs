@@ -39,36 +39,20 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section
-      className="py-20 bg-background/30 border-y border-primary/20"
-      id="testimonials"
-    >
+    <section className="py-20 bg-background" id="testimonials">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0 }}
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 10 }}
           viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="font-mono text-base text-primary/50 mb-4">
+          <div className="font-mono text-base text-primary/50">
             $ git log --grep=&quot;review&quot; --pretty=format
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
-          </h2>
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
-            <span className="hidden sm:inline">CODE REVIEWS FROM FOUNDERS</span>
-            <span className="sm:hidden">FOUNDER REVIEWS</span>
-          </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-mono font-bold text-primary">
+            Founder Reviews
           </h2>
         </motion.div>
 

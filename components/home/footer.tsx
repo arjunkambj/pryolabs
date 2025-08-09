@@ -60,9 +60,9 @@ export function Footer() {
             <div className="space-y-2 text-sm">
               <Link
                 className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#features"
+                href="#process"
               >
-                → Tech Stack
+                → Process
               </Link>
               <Link
                 className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"

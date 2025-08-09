@@ -73,39 +73,21 @@ const workingProcess = [
 
 export function FeaturesGrid() {
   return (
-    <section
-      className="py-20 bg-background/30 border-y border-primary/20"
-      id="features"
-    >
+    <section className="py-20 bg-background" id="process">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0 }}
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 10 }}
           viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="font-mono text-base text-primary/50 mb-4">
+          <div className="font-mono text-base text-primary/50">
             $ cat /pyro/process/* | head -50
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-mono font-bold text-primary">
+            Working Process
           </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
-            WORKING PROCESS
-          </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
-          </h2>
-          <p className="font-mono text-base text-primary/70 mt-4">
-            Simple 6-step process to launch your product
-          </p>
         </motion.div>
 
         {/* Process Grid */}

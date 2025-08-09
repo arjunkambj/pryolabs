@@ -13,10 +13,6 @@ export function Hero() {
   const successRate = useMotionValue(0);
   const daysCount = useMotionValue(0);
 
-  const mvpRounded = useTransform(mvpCount, Math.round);
-  const successRounded = useTransform(successRate, Math.round);
-  const daysRounded = useTransform(daysCount, Math.round);
-
   const [mvp, setMvp] = useState(0);
   const [success, setSuccess] = useState(0);
   const [days, setDays] = useState(0);
@@ -47,6 +43,7 @@ export function Hero() {
     const unsubDays = daysCount.on("change", (latest) =>
       setDays(Math.round(latest))
     );
+
     return () => {
       unsubMvp?.();
       unsubSuccess?.();
@@ -56,7 +53,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 bg-background"
+      className="relative overflow-hidden pt-32 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 bg-background"
       id="hero"
     >
       {/* ASCII Grid Background + scanline for terminal vibe */}
@@ -66,14 +63,14 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0">
         <motion.div
           aria-hidden
-          className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-400/10 blur-2xl"
           animate={{ x: [0, 15, -10, 0], y: [0, -10, 10, 0] }}
+          className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-teal-400/10 opacity-70 blur-2xl"
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           aria-hidden
-          className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
           animate={{ x: [0, -20, 10, 0], y: [0, 10, -10, 0] }}
+          className="absolute top-3/5 -right-24 h-80 w-80 rounded-full bg-primary/10 opacity-70 blur-3xl"
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <div
@@ -88,54 +85,61 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center font-mono">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 rounded-sm border border-teal-400/30 bg-teal-400/5 px-3 py-1 text-xs text-teal-300"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
         >
           <span>●</span>
-          <span>Pyro Labs - Web Dev Agency</span>
+          <span>Pyro Labs — MVPs in 21 days</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mt-3 sm:mt-4 text-balance text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight font-bold tracking-tight text-primary"
+          initial={{ opacity: 0, y: 10 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-4 text-balance text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight font-bold tracking-tight text-primary"
         >
-          Launch a Revenue Ready MVP in 21 days
+          <span className="block sm:hidden">From idea to MVP</span>
+          <span className="hidden sm:block whitespace-nowrap">
+            From idea to working MVP
+          </span>
+          <span className="block sm:hidden">in 21 days</span>
+          <span className="hidden sm:block whitespace-nowrap">
+            in just 21 days
+          </span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mx-auto mt-3 sm:mt-4 max-w-2xl text-balance text-sm sm:text-base text-primary/70"
+          initial={{ opacity: 0, y: 10 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="mx-auto mt-4 max-w-2xl text-balance text-sm sm:text-base text-primary/70"
         >
-          A WebDev Agency to turn your idea into something customers can try.
-          Design, frontend, backend, and deployment — handled end‑to‑end.
+          We design, build, and launch your first version so customers can try
+          it. Design, code, and hosting — end‑to‑end.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          initial={{ opacity: 0, y: 10 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Button
             as={Link}
-            href="#get-started"
             className="bg-primary text-background px-6 py-2 hover:bg-primary/90"
+            href="#get-started"
             size="md"
           >
-            Start your 21‑day sprint
+            Get started
           </Button>
           <Button
             as={Link}
-            href="#portfolio"
-            variant="bordered"
             className="border border-primary/50 text-primary/80 px-6 py-2 hover:border-primary/70 hover:text-primary"
+            href="#portfolio"
             size="md"
+            variant="bordered"
           >
             See our work
           </Button>
@@ -145,10 +149,10 @@ export function Hero() {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 10 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto"
         >
           <div className="rounded-sm border border-primary/15 bg-background/50 px-4 py-3">
             <div className="text-2xl font-semibold text-primary">
@@ -162,7 +166,7 @@ export function Hero() {
               {success}%
             </div>
             <div className="text-xs text-primary/60 mt-1">
-              Found product‑market fit
+              Reached product‑market fit
             </div>
           </div>
           <div className="rounded-sm border border-primary/15 bg-background/50 px-4 py-3">
@@ -254,6 +258,7 @@ function TerminalWindow() {
     const typeText = async () => {
       for (let i = 0; i < terminalCommands.length; i++) {
         const delayScale = 0.5; // speed up sequence vs. original
+
         await new Promise((resolve) =>
           setTimeout(resolve, terminalCommands[i].delay * delayScale)
         );

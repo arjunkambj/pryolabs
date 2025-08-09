@@ -8,16 +8,15 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const navItems = [
-    { label: "process", href: "#process" },
-    { label: "features", href: "#features" },
-    { label: "portfolio", href: "#portfolio" },
-    { label: "pricing", href: "#pricing" },
-    { label: "faq", href: "#faq" },
+    { label: "Process", href: "#process" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
+    href: string
   ) => {
     e.preventDefault();
     const target = document.querySelector(href);
@@ -83,9 +82,8 @@ export function Navbar() {
             >
               <span className="text-teal-400">$</span>
               <span className="text-primary font-bold group-hover:text-teal-400 transition-all duration-300">
-                pyro
+                PyroLabs
               </span>
-              <span className="text-primary/60 font-semibold">@labs</span>
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 className="inline-block w-2 h-4 bg-teal-400/60 ml-1"

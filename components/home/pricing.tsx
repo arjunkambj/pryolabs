@@ -4,50 +4,41 @@ import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const pricingPackages = [
+const pkgs = [
   {
     name: "MVP PACKAGE",
-    version: "v2.0",
+    version: "v2.1",
     price: "$5,999",
     priceNote: "one-time",
     delivery: "21 days",
     guarantee: "100% money-back",
     features: [
-      "Discovery & Requirements Analysis",
-      "UI/UX Design in Figma",
-      "Responsive Frontend Development",
-      "Backend API & Database",
-      "Authentication & User Management",
-      "Payment Integration",
-      "Cloud Deployment & Hosting",
-      "Analytics & Monitoring",
-      "Documentation & Code Handover",
-      "1 Week Post-Launch Support",
-      "Full Source Code Ownership",
+      "Design in Figma",
+      "Frontend + Backend",
+      "Database & Auth",
+      "Payments & Analytics",
+      "Deployment & Docs",
+      "1 Week Support",
+      "Full Source Code",
     ],
     popular: true,
     cta: "Get Started",
     ctaLink: "#get-started",
   },
   {
-    name: "ENTERPRISE PACKAGE",
-    version: "v2.0",
+    name: "ENTERPRISE",
+    version: "v2.1",
     price: "Custom",
     priceNote: "flexible pricing",
     delivery: "Flexible timeline",
     guarantee: "SLA-backed delivery",
     features: [
-      "Everything in MVP Package",
-      "Extended Development (30-90 days)",
-      "Multiple Product Modules",
+      "All MVP features",
+      "Extended Development",
       "Advanced Integrations",
-      "Team Training & Handover",
       "Priority Support",
-      "Quarterly Maintenance Updates",
-      "Dedicated Project Manager",
-      "Custom SLA Agreement",
-      "White-label Options",
-      "Performance Optimization",
+      "Team Training",
+      "Custom SLA",
     ],
     popular: false,
     cta: "Contact Sales",
@@ -55,66 +46,50 @@ const pricingPackages = [
   },
 ];
 
-export function Pricing() {
+export default function Pricing() {
   return (
-    <section className="py-20 bg-background" id="pricing">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
+    <section id="pricing" className="py-20 bg-background">
+      <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0 }}
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
         >
-          <div className="font-mono text-base text-primary/50 mb-4">
+          <div className="font-mono text-base text-primary/50">
             $ cat /etc/pricing.conf
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-mono font-bold text-primary">
+            Transparent Pricing
           </h2>
-          <h2 className="text-xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4">
-            <span className="hidden sm:inline">TRANSPARENT PRICING</span>
-            <span className="sm:hidden">PRICING</span>
-          </h2>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-4 overflow-hidden">
-            <span className="hidden sm:inline">
-              ═══════════════════════════════════════
-            </span>
-            <span className="sm:hidden">═════════════════════</span>
-          </h2>
-          <p className="font-mono text-base text-primary/70 mt-4">
-            Choose the package that fits your needs
-          </p>
         </motion.div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {pricingPackages.map((pkg, index) => (
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
+          {pkgs.map((pkg, index) => (
             <motion.div
               key={pkg.name}
-              className="relative"
-              initial={{ opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 * index }}
+              className="relative"
             >
               {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-teal-400 text-background px-3 py-1 text-sm font-mono font-bold">
+                <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
+                  <span className="bg-teal-400 px-3 py-1 font-mono text-sm font-bold text-background">
                     MOST POPULAR
                   </span>
                 </div>
               )}
-
               <div
-                className={`border ${pkg.popular ? "border-teal-400 shadow-[0_0_20px_rgba(0,212,212,0.2)]" : "border-primary/30"} bg-background/50 p-6 font-mono hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 h-full flex flex-col`}
+                className={`flex h-full flex-col border bg-background/50 p-6 font-mono transition-all duration-300 ${
+                  pkg.popular
+                    ? "border-teal-400 shadow-[0_0_20px_rgba(0,212,212,0.2)]"
+                    : "border-primary/30"
+                }`}
               >
-                {/* Package Header */}
-                <div className="mb-6 pb-4 border-b border-primary/30">
-                  <div className="flex items-center justify-between mb-2">
+                <div className="mb-6 border-b border-primary/30 pb-4">
+                  <div className="mb-2 flex items-center justify-between">
                     <h3 className="text-lg font-bold text-primary">
                       {pkg.name}
                     </h3>
@@ -122,20 +97,14 @@ export function Pricing() {
                       {pkg.version}
                     </span>
                   </div>
-
-                  {/* Price */}
-                  <div className="mt-4">
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold text-teal-400">
-                        {pkg.price}
-                      </span>
-                      <span className="text-sm text-primary/50">
-                        {pkg.priceNote}
-                      </span>
-                    </div>
+                  <div className="mt-4 flex items-baseline gap-2">
+                    <span className="text-3xl font-bold text-teal-400">
+                      {pkg.price}
+                    </span>
+                    <span className="text-sm text-primary/50">
+                      {pkg.priceNote}
+                    </span>
                   </div>
-
-                  {/* Key Details */}
                   <div className="mt-4 space-y-1 text-sm">
                     <div className="flex justify-between">
                       <span className="text-primary/70">Delivery:</span>
@@ -147,33 +116,29 @@ export function Pricing() {
                     </div>
                   </div>
                 </div>
-
-                {/* Features List */}
                 <div className="flex-grow">
-                  <div className="text-sm text-teal-400 font-bold mb-3">
+                  <div className="mb-3 text-sm font-bold text-teal-400">
                     INCLUDED FEATURES:
                   </div>
                   <ul className="space-y-2">
-                    {pkg.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <span className="text-teal-400 mt-0.5">✓</span>
-                        <span className="text-foreground/80">{feature}</span>
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm">
+                        <span className="mt-0.5 text-teal-400">✓</span>
+                        <span className="text-foreground/80">{f}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                {/* CTA Button */}
-                <div className="mt-6 pt-4 border-t border-primary/30">
+                <div className="mt-6 border-t border-primary/30 pt-4">
                   <Button
                     as={Link}
-                    className={`w-full font-mono px-6 py-2 transition-colors text-sm sm:text-base ${
+                    href={pkg.ctaLink}
+                    size="md"
+                    className={`w-full px-6 py-2 text-sm ${
                       pkg.popular
                         ? "bg-primary text-background hover:bg-primary/90"
                         : "border border-primary/50 text-primary/80 hover:border-primary/70 hover:text-primary bg-transparent"
                     }`}
-                    href={pkg.ctaLink}
-                    size="md"
                     variant={pkg.popular ? "solid" : "bordered"}
                   >
                     {pkg.cta}
@@ -183,57 +148,6 @@ export function Pricing() {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <p className="font-mono text-base text-primary/70 mb-6">
-            Limited slots available. Only 2 projects per month.
-          </p>
-        </motion.div>
-
-        {/* Payment Terms */}
-        <motion.div
-          className="mt-8 text-center font-mono text-sm text-primary/50"
-          initial={{ opacity: 0 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-        >
-          <div>Payment terms: 50% upfront, 50% on delivery</div>
-          <div>Accepted methods: Wire, ACH, Credit Card, Crypto</div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          className="mt-16 font-mono text-center"
-          initial={{ opacity: 0 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-        >
-          <div className="inline-block border border-primary/30 p-4">
-            <div className="text-sm text-primary/50 mb-2">
-              [STATS] Performance Metrics
-            </div>
-            <div className="grid grid-cols-3 gap-8 text-base">
-              <div>
-                <span className="text-success">24</span>
-                <span className="text-primary/50"> MVPs</span>
-              </div>
-              <div>
-                <span className="text-success">100%</span>
-                <span className="text-primary/50"> Success</span>
-              </div>
-              <div>
-                <span className="text-success">10x</span>
-                <span className="text-primary/50"> ROI</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

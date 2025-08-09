@@ -17,7 +17,14 @@ export function CTA() {
   }, []);
 
   return (
-    <section className="py-20 bg-background" id="get-started">
+    <motion.section
+      className="py-20 bg-background"
+      id="get-started"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.div
           className="border border-primary bg-background/50 p-8 font-mono text-center"
@@ -82,6 +89,6 @@ export function CTA() {
           <div>✓ Response within 24 hours</div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

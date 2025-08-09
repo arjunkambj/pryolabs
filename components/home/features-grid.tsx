@@ -73,7 +73,14 @@ const workingProcess = [
 
 export function FeaturesGrid() {
   return (
-    <section className="py-20 bg-background" id="process">
+    <motion.section
+      className="py-20 bg-background"
+      id="process"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -93,10 +100,15 @@ export function FeaturesGrid() {
         {/* Process Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-hidden">
           {workingProcess.map((process, index) => (
-            <div
+            <motion.div
               key={process.step}
               className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 sm:hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 max-w-full animate-fadeIn"
+              initial={{ opacity: 0, y: 10 }}
               style={{ animationDelay: `${index * 100}ms` }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -2 }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               {/* Step header */}
               <div className="mb-3 pb-2 border-b border-primary/30">
@@ -127,7 +139,7 @@ export function FeaturesGrid() {
               <div className="mt-3 pt-2 border-t border-primary/30 text-sm text-primary/30">
                 [completed] ✓
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -145,6 +157,6 @@ export function FeaturesGrid() {
           <div>[INFO] Full product delivered in 21 days</div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

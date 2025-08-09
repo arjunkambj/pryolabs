@@ -60,7 +60,14 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-background" id="faq">
+    <motion.section
+      className="py-20 bg-background"
+      id="faq"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -149,6 +156,6 @@ export function FAQ() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

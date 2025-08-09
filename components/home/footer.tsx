@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function Footer() {
   return (
-    <footer className="border-t border-primary bg-background font-mono">
+    <motion.footer
+      className="border-t border-primary bg-background font-mono"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-base">
@@ -147,6 +154,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

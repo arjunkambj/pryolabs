@@ -44,7 +44,14 @@ const caseStudies = [
 
 export function CaseStudies() {
   return (
-    <section className="relative py-20 bg-background" id="portfolio">
+    <motion.section
+      className="relative py-20 bg-background"
+      id="portfolio"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
@@ -73,6 +80,7 @@ export function CaseStudies() {
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -2 }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
                 <Card className="group h-full overflow-hidden border border-primary/30 bg-background/90 backdrop-blur hover:border-teal-400 hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 rounded-sm">
@@ -148,7 +156,7 @@ export function CaseStudies() {
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="bg-background/90 border border-primary/30 rounded-sm p-8 font-mono shadow-[0_0_20px_rgba(0,255,0,0.1)]">
+          <div className="bg-background/90 border border-primary/30 rounded-sm p-8 font-mono">
             <div className="grid grid-cols-3 gap-8">
               {[
                 { label: "MVPs Delivered", value: "24" },
@@ -186,6 +194,6 @@ export function CaseStudies() {
           </Button>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

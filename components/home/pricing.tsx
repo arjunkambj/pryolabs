@@ -48,7 +48,14 @@ const pkgs = [
 
 export default function Pricing() {
   return (
-    <section className="py-20 bg-background" id="pricing">
+    <motion.section
+      className="py-20 bg-background"
+      id="pricing"
+      initial={{ opacity: 0, y: 12 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           className="mb-16 text-center"
@@ -149,6 +156,6 @@ export default function Pricing() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

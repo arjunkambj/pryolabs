@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@heroui/react";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -35,13 +35,13 @@ export function Hero() {
 
   useEffect(() => {
     const unsubMvp = mvpCount.on("change", (latest) =>
-      setMvp(Math.round(latest))
+      setMvp(Math.round(latest)),
     );
     const unsubSuccess = successRate.on("change", (latest) =>
-      setSuccess(Math.round(latest))
+      setSuccess(Math.round(latest)),
     );
     const unsubDays = daysCount.on("change", (latest) =>
-      setDays(Math.round(latest))
+      setDays(Math.round(latest)),
     );
 
     return () => {
@@ -250,7 +250,7 @@ function TerminalWindow() {
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-      })
+      }),
     );
   }, []);
 
@@ -260,7 +260,7 @@ function TerminalWindow() {
         const delayScale = 0.5; // speed up sequence vs. original
 
         await new Promise((resolve) =>
-          setTimeout(resolve, terminalCommands[i].delay * delayScale)
+          setTimeout(resolve, terminalCommands[i].delay * delayScale),
         );
         setCurrentLine(i);
 

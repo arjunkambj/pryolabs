@@ -1,159 +1,76 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+
+const links = [
+  { title: "Features", href: "#features" },
+  { title: "Solution", href: "#solution" },
+  { title: "Customers", href: "#testimonials" },
+  { title: "Pricing", href: "#pricing" },
+  { title: "Help", href: "#faq" },
+  { title: "About", href: "#about" },
+];
+
+const socialLinks = [
+  { name: "X/Twitter", icon: "ri:twitter-x-line", href: "#" },
+  { name: "LinkedIn", icon: "ri:linkedin-fill", href: "#" },
+  { name: "Facebook", icon: "ri:facebook-fill", href: "#" },
+  { name: "Threads", icon: "tabler:brand-threads", href: "#" },
+  { name: "Instagram", icon: "ri:instagram-line", href: "#" },
+  { name: "TikTok", icon: "ri:tiktok-fill", href: "#" },
+];
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <motion.footer
-      className="border-t border-primary bg-background font-mono"
-      initial={{ opacity: 0, y: 12 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-base">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <div className="text-primary mb-3 text-lg font-bold">
-              <span className="text-primary">labs@Pyro</span>
-              <span className="text-teal-400">:</span>
-              <span className="text-primary">~</span>
-              <span className="text-teal-400">$</span>
-              <span className="ml-2 text-base">whoami</span>
+    <footer className="py-16 md:py-32">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Logo */}
+        <Link aria-label="go home" className="mx-auto block size-fit" href="/">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+              <span className="text-white font-bold text-xl">P</span>
             </div>
-            <div className="text-foreground/70 text-sm space-y-2">
-              <div>Pyro Labs - Ship Fast. Ship Right.</div>
-              <div>Building MVPs in 21 days since 2020</div>
-              <div>24 successful products delivered</div>
-              <div className="text-primary">
-                <span className="text-teal-400">100%</span> client satisfaction
-                rate
-              </div>
-            </div>
-            <div className="mt-4 flex gap-4">
-              <a
-                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
-                href="https://twitter.com/pyrolabs"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Twitter
-              </a>
-              <a
-                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
-                href="https://github.com/pyrolabs"
-                rel="noreferrer"
-                target="_blank"
-              >
-                GitHub
-              </a>
-              <a
-                className="text-primary/50 hover:text-teal-400 transition-colors duration-300 text-sm"
-                href="https://linkedin.com/company/pyrolabs"
-                rel="noreferrer"
-                target="_blank"
-              >
-                LinkedIn
-              </a>
-            </div>
+            <span className="text-2xl font-bold">PyroLabs</span>
           </div>
+        </Link>
 
-          {/* Quick Links */}
-          <div>
-            <div className="text-primary mb-3 font-bold">$ ls services/</div>
-            <div className="space-y-2 text-sm">
-              <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#process"
-              >
-                → Process
-              </Link>
-              <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#portfolio"
-              >
-                → Portfolio
-              </Link>
-              <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#pricing"
-              >
-                → Pricing
-              </Link>
-              <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#faq"
-              >
-                → FAQ
-              </Link>
-              <Link
-                className="block text-foreground/70 hover:text-teal-400 transition-colors duration-300"
-                href="#testimonials"
-              >
-                → Reviews
-              </Link>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <div className="text-primary mb-3 font-bold">$ cat contact.txt</div>
-            <div className="space-y-2 text-sm text-foreground/70">
-              <div>
-                Email: <span className="text-teal-400">hello@pyrolabs.io</span>
-              </div>
-              <div>
-                Slack: <span className="text-teal-400">pyrolabs.slack.com</span>
-              </div>
-              <div>
-                Discord:{" "}
-                <span className="text-teal-400">discord.gg/pyrolabs</span>
-              </div>
-              <div className="pt-2">
-                <div className="text-success">Office Hours:</div>
-                <div>Mon-Fri: 9am-6pm PST</div>
-                <div>Response: &lt; 24 hours</div>
-              </div>
-            </div>
-          </div>
+        {/* Navigation Links */}
+        <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+          {links.map((link, index) => (
+            <Link
+              key={index}
+              className="text-default-500 hover:text-primary block duration-150"
+              href={link.href}
+            >
+              <span>{link.title}</span>
+            </Link>
+          ))}
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-primary/30">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="text-sm text-primary/50">
-              <div>© 2024 Pyro Labs Inc. All rights reserved.</div>
-              <div className="mt-2 space-x-4">
-                <Link
-                  className="hover:text-teal-400 transition-colors duration-300"
-                  href="/terms"
-                >
-                  Terms of Service
-                </Link>
-                <Link
-                  className="hover:text-teal-400 transition-colors duration-300"
-                  href="/privacy"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  className="hover:text-teal-400 transition-colors duration-300"
-                  href="/sla"
-                >
-                  SLA
-                </Link>
-              </div>
-            </div>
-            <div className="text-sm text-right text-primary/50 hidden md:block">
-              <div className="text-teal-400">System Status: ● OPERATIONAL</div>
-              <div>Uptime: 99.99% | Load: 0.42 | Memory: 16GB</div>
-            </div>
-          </div>
+        {/* Social Links */}
+        <div className="my-8 flex flex-wrap justify-center gap-6">
+          {socialLinks.map((social) => (
+            <Link
+              key={social.name}
+              aria-label={social.name}
+              className="text-default-500 hover:text-primary block transition-colors"
+              href={social.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Icon className="size-6" icon={social.icon} />
+            </Link>
+          ))}
         </div>
+
+        {/* Copyright */}
+        <span className="text-default-500 block text-center text-sm">
+          © {currentYear} PyroLabs, All rights reserved
+        </span>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

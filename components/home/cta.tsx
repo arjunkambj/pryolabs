@@ -1,94 +1,91 @@
 "use client";
 
 import { Button } from "@heroui/react";
+import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
 
 export function CTA() {
-  const [showCursor, setShowCursor] = useState(true);
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+    }
+  };
 
   return (
-    <motion.section
-      className="py-20 bg-background"
-      id="get-started"
-      initial={{ opacity: 0, y: 12 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.25 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <section className="py-16 md:py-32" id="get-started">
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
-          className="border border-primary bg-background/50 p-8 font-mono text-center"
-          initial={{ opacity: 0 }}
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
           viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          {/* Terminal Header */}
-          <div className="flex items-center justify-center gap-2 mb-6 pb-4 border-b border-primary/30">
-            <span className="w-3 h-3 rounded-full bg-danger/60" />
-            <span className="w-3 h-3 rounded-full bg-warning/60" />
-            <span className="w-3 h-3 rounded-full bg-success/60" />
-            <span className="ml-4 text-base text-primary/50">
-              pyro-cli v2.0.0
-            </span>
-          </div>
+          <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
+            Ready to Launch Your MVP?
+          </h2>
+          <p className="mt-4 text-default-600">
+            Join 40+ founders who&apos;ve successfully launched with Pyro Labs.
+          </p>
 
-          {/* Terminal Content */}
-          <div className="space-y-6">
-            <div className="text-2xl sm:text-3xl font-bold text-primary mb-2">
-              2 Slots Available for this month
-            </div>
-            <div className="text-sm sm:text-base text-foreground/70">
-              Start your 21-day sprint today.
-            </div>
+          <form
+            className="mx-auto mt-10 max-w-sm lg:mt-12"
+            onSubmit={handleSubmit}
+          >
+            <div className="relative grid grid-cols-[1fr_auto] items-center rounded-2xl border border-default-200 bg-background pr-3 shadow shadow-default-100/5 transition-all duration-200 has-[input:focus]:ring-2 has-[input:focus]:ring-default-200">
+              <Icon
+                className="pointer-events-none absolute inset-y-0 left-5 my-auto size-5 text-default-400"
+                icon="heroicons:envelope"
+              />
 
-            {/* Terminal prompt display */}
-            <div className="bg-black/50 border border-primary/20 p-4 rounded-sm font-mono text-left max-w-md mx-auto">
-              <div className="text-xs text-primary/50 mb-2">
-                ~/projects/mvp-builder
+              <input
+                required
+                className="h-14 w-full bg-transparent pl-12 pr-3 placeholder:text-default-400 focus:outline-none"
+                placeholder="Enter your email address"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <div className="md:pr-1.5 lg:pr-0">
+                <Button
+                  aria-label="submit"
+                  className="font-medium"
+                  color="primary"
+                  radius="lg"
+                  size="md"
+                  type="submit"
+                >
+                  <span className="hidden md:block">Launch My MVP</span>
+                  <Icon
+                    className="relative mx-auto size-5 md:hidden"
+                    icon="heroicons:paper-airplane"
+                  />
+                </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-teal-400">$</span>
-                <span className="text-primary">./book-slot.sh</span>
-                <span
-                  className={`w-2 h-4 bg-teal-400 ${showCursor ? "" : "opacity-0"}`}
-                />
-              </div>
             </div>
+          </form>
 
-            {/* CTA Button */}
-            <Button
-              as={Link}
-              className="bg-primary text-background font-mono px-8 py-2 hover:bg-primary/90 transition-colors text-sm sm:text-base"
-              href="mailto:hello@pyrolabs.io?subject=MVP%20Project%20Inquiry"
-              size="md"
+          {submitted && (
+            <motion.div
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-4 text-success flex items-center justify-center gap-2"
+              initial={{ opacity: 0, y: 10 }}
             >
-              Book Your Slot
-            </Button>
-          </div>
-        </motion.div>
-
-        {/* Quick Info */}
-        <motion.div
-          className="mt-6 text-center text-sm text-primary/50 font-mono"
-          initial={{ opacity: 0 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-        >
-          <div>✓ 100% money-back guarantee</div>
-          <div>✓ No commitment until you approve the plan</div>
-          <div>✓ Response within 24 hours</div>
+              <Icon className="size-5" icon="heroicons:check-circle-solid" />
+              <span>
+                Thank you! We&apos;ll contact you within 24 hours to discuss
+                your MVP.
+              </span>
+            </motion.div>
+          )}
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 }

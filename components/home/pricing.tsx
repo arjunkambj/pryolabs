@@ -1,161 +1,140 @@
 "use client";
 
-import { Button } from "@heroui/react";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { Button, Card, CardBody, CardFooter, CardHeader } from "@heroui/react";
+import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
-const pkgs = [
+const pricingPlans = [
   {
-    name: "MVP PACKAGE",
-    version: "v2.1",
-    price: "$5,999",
-    priceNote: "one-time",
-    delivery: "21 days",
-    guarantee: "100% money-back",
+    name: "Free",
+    price: "$0",
+    period: "/ mo",
+    description: "Per editor",
     features: [
-      "Design in Figma",
-      "Frontend + Backend",
-      "Database & Auth",
-      "Payments & Analytics",
-      "Deployment & Docs",
-      "1 Week Support",
-      "Full Source Code",
+      "Basic Analytics Dashboard",
+      "5GB Cloud Storage",
+      "Email and Chat Support",
     ],
-    popular: true,
-    cta: "Get Started",
-    ctaLink: "#get-started",
+    buttonVariant: "bordered" as const,
+    popular: false,
   },
   {
-    name: "ENTERPRISE",
-    version: "v2.1",
-    price: "Custom",
-    priceNote: "flexible pricing",
-    delivery: "Flexible timeline",
-    guarantee: "SLA-backed delivery",
+    name: "Pro",
+    price: "$19",
+    period: "/ mo",
+    description: "Per editor",
     features: [
-      "All MVP features",
-      "Extended Development",
-      "Advanced Integrations",
-      "Priority Support",
-      "Team Training",
-      "Custom SLA",
+      "Everything in Free Plan",
+      "5GB Cloud Storage",
+      "Email and Chat Support",
+      "Access to Community Forum",
+      "Single User Access",
+      "Access to Basic Templates",
+      "Mobile App Access",
+      "1 Custom Report Per Month",
+      "Monthly Product Updates",
+      "Standard Security Features",
     ],
+    buttonVariant: "solid" as const,
+    popular: true,
+  },
+  {
+    name: "Startup",
+    price: "$29",
+    period: "/ mo",
+    description: "Per editor",
+    features: [
+      "Everything in Pro Plan",
+      "5GB Cloud Storage", 
+      "Email and Chat Support",
+    ],
+    buttonVariant: "bordered" as const,
     popular: false,
-    cta: "Contact Sales",
-    ctaLink: "#get-started",
   },
 ];
 
 export default function Pricing() {
   return (
-    <motion.section
-      className="py-20 bg-background"
-      id="pricing"
-      initial={{ opacity: 0, y: 12 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
+    <section className="py-16 md:py-32" id="pricing">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 10 }}
+          className="mx-auto max-w-2xl space-y-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="font-mono text-base text-primary/50">
-            $ cat /etc/pricing.conf
-          </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-mono font-bold text-primary">
-            Transparent Pricing
-          </h2>
+          <h1 className="text-center text-4xl font-semibold lg:text-5xl">
+            Pricing that Scales with You
+          </h1>
+          <p className="text-default-600">
+            Gemini is evolving to be more than just the models. It supports an
+            entire to the APIs and platforms helping developers and businesses
+            innovate.
+          </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-2">
-          {pkgs.map((pkg, index) => (
+        <div className="mt-8 grid gap-6 md:mt-20 md:grid-cols-3">
+          {pricingPlans.map((plan, index) => (
             <motion.div
-              key={pkg.name}
+              key={plan.name}
               className="relative"
-              initial={{ opacity: 0, y: 12 }}
-              transition={{ delay: 0.08 * index }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
             >
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
-                  <span className="bg-teal-400 px-3 py-1 font-mono text-sm font-bold text-background">
-                    MOST POPULAR
-                  </span>
-                </div>
+              {plan.popular && (
+                <span className="absolute inset-x-0 -top-3 mx-auto flex h-6 w-fit items-center rounded-full bg-gradient-to-br from-violet-400 to-amber-300 px-3 py-1 text-xs font-medium text-amber-950 ring-1 ring-inset ring-white/20 ring-offset-1 ring-offset-default-100/5">
+                  Popular
+                </span>
               )}
-              <div
-                className={`flex h-full flex-col border bg-background/50 p-6 font-mono transition-all duration-300 ${
-                  pkg.popular
-                    ? "border-teal-400 shadow-[0_0_20px_rgba(0,212,212,0.2)]"
-                    : "border-primary/30"
-                }`}
-              >
-                <div className="mb-6 border-b border-primary/30 pb-4">
-                  <div className="mb-2 flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-primary">
-                      {pkg.name}
-                    </h3>
-                    <span className="text-xs text-primary/50">
-                      {pkg.version}
-                    </span>
+              
+              <Card className="flex h-full flex-col border-none shadow-none bg-default-100">
+                <CardHeader className="pb-4">
+                  <h3 className="font-medium text-lg">{plan.name}</h3>
+                  <div className="my-3">
+                    <span className="text-2xl font-semibold">{plan.price}</span>
+                    <span className="text-default-600">{plan.period}</span>
                   </div>
-                  <div className="mt-4 flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-teal-400">
-                      {pkg.price}
-                    </span>
-                    <span className="text-sm text-primary/50">
-                      {pkg.priceNote}
-                    </span>
-                  </div>
-                  <div className="mt-4 space-y-1 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-primary/70">Delivery:</span>
-                      <span className="text-primary">{pkg.delivery}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-primary/70">Guarantee:</span>
-                      <span className="text-primary">{pkg.guarantee}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-grow">
-                  <div className="mb-3 text-sm font-bold text-teal-400">
-                    INCLUDED FEATURES:
-                  </div>
-                  <ul className="space-y-2">
-                    {pkg.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-sm">
-                        <span className="mt-0.5 text-teal-400">✓</span>
-                        <span className="text-foreground/80">{f}</span>
+                  <p className="text-sm text-default-500">{plan.description}</p>
+                </CardHeader>
+
+                <CardBody className="flex-1 space-y-4 pt-0">
+                  <hr className="border-dashed border-default-300" />
+                  
+                  <ul className="list-outside space-y-3 text-sm">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-center gap-2"
+                      >
+                        <Icon 
+                          icon="lucide:check" 
+                          className="size-3 text-foreground flex-shrink-0"
+                        />
+                        <span className="text-default-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="mt-6 border-t border-primary/30 pt-4">
+                </CardBody>
+
+                <CardFooter className="mt-auto pt-4">
                   <Button
                     as={Link}
-                    className={`w-full px-6 py-2 text-sm ${
-                      pkg.popular
-                        ? "bg-primary text-background hover:bg-primary/90"
-                        : "border border-primary/50 text-primary/80 hover:border-primary/70 hover:text-primary bg-transparent"
-                    }`}
-                    href={pkg.ctaLink}
-                    size="md"
-                    variant={pkg.popular ? "solid" : "bordered"}
+                    href="#get-started"
+                    className="w-full"
+                    color={plan.popular ? "primary" : "default"}
+                    variant={plan.popular ? "solid" : "bordered"}
                   >
-                    {pkg.cta}
+                    Get Started
                   </Button>
-                </div>
-              </div>
+                </CardFooter>
+              </Card>
             </motion.div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

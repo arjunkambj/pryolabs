@@ -1,15 +1,16 @@
 "use client";
 
+import { Button } from "@heroui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+
   const navItems = [
-    { label: "Process", href: "#process" },
-    { label: "Portfolio", href: "#portfolio" },
+    { label: "How It Works", href: "#process" },
+    { label: "Success Stories", href: "#portfolio" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -29,26 +30,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      // Detect active section
-      const sections = navItems.map((item) => ({
-        id: item.href.substring(1),
-        element: document.querySelector(item.href),
-      }));
-
-      const current = sections.find((section) => {
-        if (section.element) {
-          const rect = section.element.getBoundingClientRect();
-
-          return rect.top <= 150 && rect.bottom >= 150;
-        }
-
-        return false;
-      });
-
-      if (current) {
-        setActiveSection(current.id);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,82 +39,59 @@ export function Navbar() {
 
   return (
     <motion.nav
-      animate={{
-        y: scrolled ? 15 : 25,
-        opacity: 1,
-        scale: scrolled ? 0.98 : 1,
-      }}
-      className="fixed left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl"
-      initial={{ y: -100, opacity: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+          : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      transition={{ duration: 0.5 }}
     >
-      {/* Floating terminal bar */}
-      <div className="relative bg-black/90 backdrop-blur-sm border border-primary/20 overflow-hidden">
-        <div className="relative px-6 sm:px-8 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo with typing cursor */}
-            <Link
-              className="flex items-center gap-2 font-mono text-sm sm:text-base group"
-              href="/"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-            >
-              <span className="text-teal-400">$</span>
-              <span className="text-primary font-bold group-hover:text-teal-400 transition-all duration-300">
-                PyroLabs
-              </span>
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                className="inline-block w-2 h-4 bg-teal-400/60 ml-1"
-                transition={{ duration: 0.8, repeat: Infinity }}
-              />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  className="relative font-mono text-sm text-primary/80 hover:text-teal-400 transition-all duration-300 group font-medium"
-                  href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
-                >
-                  <span className="text-primary/40 group-hover:text-teal-400/60 transition-all duration-300">
-                    &gt;{" "}
-                  </span>
-                  <span className="group-hover:text-teal-400 transition-all duration-300">
-                    {item.label}
-                  </span>
-                  {activeSection === item.href.substring(1) && (
-                    <motion.div
-                      className="absolute -bottom-2 left-0 right-0 h-[1px] bg-teal-400/60"
-                      layoutId="active-pill"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </Link>
-              ))}
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link
+            className="flex items-center gap-2 group"
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">P</span>
             </div>
+            <span className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+              PyroLabs
+            </span>
+          </Link>
 
-            {/* CTA Button */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
               <Link
-                className="font-mono text-xs sm:text-sm bg-teal-400/10 border border-teal-400/80 text-teal-400 px-4 sm:px-5 py-1.5 hover:bg-teal-400/20 hover:border-teal-400/60 hover:text-teal-400 transition-all duration-300 group"
-                href="#get-started"
-                onClick={(e) => handleSmoothScroll(e, "#get-started")}
+                key={item.href}
+                className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
               >
-                <span className="inline-block">[</span>
-                <span className="inline-block mx-1">CONTACT</span>
-                <span className="inline-block">]</span>
+                {item.label}
               </Link>
-            </motion.div>
+            ))}
           </div>
+
+          {/* CTA Button */}
+          <Button
+            as={Link}
+            className="bg-primary text-white font-medium px-6 hover:bg-primary/90 transition-all shadow-sm"
+            href="#get-started"
+            radius="md"
+            size="sm"
+            onClick={(e: any) => handleSmoothScroll(e, "#get-started")}
+          >
+            Get Started
+          </Button>
         </div>
       </div>
     </motion.nav>

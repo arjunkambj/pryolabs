@@ -1,138 +1,149 @@
 "use client";
 
-import { Button } from "@heroui/react";
+import { Card, CardBody, CardHeader, Avatar } from "@heroui/react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-
-const reviews = [
-  {
-    author: "SarahChen",
-    avatar: "SC",
-    rating: "⭐⭐⭐⭐⭐",
-    review:
-      "LGTM! Pyro Labs delivered our MVP in 19 days. Clean code, great architecture, amazing documentation. Would definitely work with them again.",
-    approved: true,
-    changes: "+8,420 -0",
-    files: "156 files",
-  },
-  {
-    author: "MichaelRodriguez",
-    avatar: "MR",
-    rating: "⭐⭐⭐⭐⭐",
-    review:
-      "Approved ✅ The quality and speed were unmatched. Professional team, excellent communication, delivered exactly what we needed.",
-    approved: true,
-    changes: "+5,200 -180",
-    files: "89 files",
-  },
-  {
-    author: "EmilyWatson",
-    avatar: "EW",
-    rating: "⭐⭐⭐⭐⭐",
-    review:
-      "Ship it! 🚀 Best decision for our startup. They understood our vision and delivered a production-ready product that exceeded expectations.",
-    approved: true,
-    changes: "+12,350 -420",
-    files: "234 files",
-  },
-];
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-background" id="testimonials">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 md:py-32" id="testimonials">
+      <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
         {/* Header */}
         <motion.div
-          className="mb-16 text-center"
-          initial={{ opacity: 0, y: 10 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <div className="font-mono text-base text-primary/50">
-            $ git log --grep=&quot;review&quot; --pretty=format
-          </div>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-mono font-bold text-primary">
-            Founder Reviews
-          </h2>
-        </motion.div>
-
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto px-4 sm:px-0 overflow-hidden">
-          {reviews.map((review, index) => (
-            <div
-              key={review.author}
-              className="border border-primary/30 bg-background/50 p-3 sm:p-4 font-mono text-sm sm:text-base hover:border-teal-400 sm:hover:shadow-[0_0_20px_rgba(0,212,212,0.2)] transition-all duration-300 max-w-full animate-fadeIn"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between mb-3 pb-3 border-b border-primary/20">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-primary/20 rounded flex items-center justify-center text-sm text-primary font-bold">
-                    {review.avatar}
-                  </div>
-                  <span className="text-base text-primary">
-                    @{review.author}
-                  </span>
-                </div>
-                {review.approved && (
-                  <span className="text-sm text-success font-bold">
-                    ✓ APPROVED
-                  </span>
-                )}
-              </div>
-
-              {/* Review Content */}
-              <div className="mb-3">
-                <div className="text-sm text-primary mb-2">{review.rating}</div>
-                <p className="text-base text-foreground/80 leading-relaxed">
-                  {review.review}
-                </p>
-              </div>
-
-              {/* Stats */}
-              <div className="flex items-center justify-between text-sm text-primary/50 pt-3 border-t border-primary/20">
-                <span>{review.files}</span>
-                <span className="text-success">{review.changes}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Stats */}
-        <motion.div
-          className="mt-8 sm:mt-12 md:mt-16 text-center font-mono px-4 sm:px-0"
-          initial={{ opacity: 0 }}
-          viewport={{ once: true }}
-          whileInView={{ opacity: 1 }}
-        >
-          <div className="inline-block border border-primary/30 bg-background/50 px-6 py-3 shadow-[0_0_15px_rgba(0,255,0,0.1)]">
-            <div className="text-base text-primary">
-              <span className="text-teal-400">✓</span> All checks passed •{" "}
-              <span className="text-teal-400">100%</span> approval rate
-            </div>
-            <div className="text-sm text-primary/50 mt-1">
-              3 successful deployments
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          className="mt-8 text-center"
+          className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12"
           initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <Button
-            as={Link}
-            className="bg-primary text-background font-mono px-6 sm:px-8 py-2 hover:bg-primary/90 transition-colors text-sm sm:text-base"
-            href="#get-started"
-            size="md"
-          >
-            Join Our Success Stories
-          </Button>
+          <h2 className="text-4xl font-medium lg:text-5xl">
+            Built by ex-Silicon Valley teams, loved by non-technical founders
+          </h2>
+          <p className="text-default-600">
+            Pyro Labs is evolving to be more than just an agency. We&apos;re
+            your technical co-founder, helping you innovate and scale.
+          </p>
         </motion.div>
+
+        {/* Testimonials Bento Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
+          {/* Large Featured Card - spans 2 cols and 2 rows */}
+          <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
+            <CardHeader className="pb-0">
+              <img
+                alt="TaskFlow Logo"
+                className="h-6 w-fit"
+                height="24"
+                src="https://placehold.co/120x30/1a1a1a/666666?text=TaskFlow"
+                width="auto"
+              />
+            </CardHeader>
+            <CardBody className="p-0 sm:p-0">
+              <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
+                <p className="text-xl font-medium">
+                  Pyro Labs transformed the way we build products. Their Silicon
+                  Valley expertise and proven process delivered our MVP in
+                  exactly 28 days. The flexibility to iterate quickly allowed us
+                  to find product-market fit faster. We&apos;ve already secured
+                  our first round of funding. Pyro Labs is a game-changer for
+                  non-technical founders.
+                </p>
+
+                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
+                  <Avatar
+                    className="size-12"
+                    src="https://i.pravatar.cc/150?u=sarah"
+                  />
+                  <div>
+                    <cite className="text-sm font-medium not-italic">
+                      Sarah Mitchell
+                    </cite>
+                    <span className="text-default-500 block text-sm">
+                      Founder, TaskFlow
+                    </span>
+                  </div>
+                </div>
+              </blockquote>
+            </CardBody>
+          </Card>
+
+          {/* Medium Card - spans 2 cols */}
+          <Card className="md:col-span-2">
+            <CardBody className="h-full pt-6">
+              <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
+                <p className="text-xl font-medium">
+                  Pyro Labs is really extraordinary. As a non-technical founder,
+                  they made everything simple. A real goldmine for startups.
+                </p>
+
+                <div className="grid grid-cols-[auto_1fr] items-center gap-3">
+                  <Avatar
+                    className="size-12"
+                    src="https://i.pravatar.cc/150?u=david"
+                  />
+                  <div>
+                    <cite className="text-sm font-medium not-italic">
+                      David Chen
+                    </cite>
+                    <span className="text-default-500 block text-sm">
+                      CEO, DataInsight
+                    </span>
+                  </div>
+                </div>
+              </blockquote>
+            </CardBody>
+          </Card>
+
+          {/* Small Card 1 */}
+          <Card>
+            <CardBody className="h-full pt-6">
+              <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
+                <p>
+                  Great work on our MVP. This is one of the best development
+                  experiences we&apos;ve had. 4 weeks as promised!
+                </p>
+
+                <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
+                  <Avatar
+                    className="size-12"
+                    src="https://i.pravatar.cc/150?u=maria"
+                  />
+                  <div>
+                    <cite className="text-sm font-medium not-italic">
+                      Maria Rodriguez
+                    </cite>
+                    <span className="text-default-500 block text-sm">
+                      Founder, HealthTrack
+                    </span>
+                  </div>
+                </div>
+              </blockquote>
+            </CardBody>
+          </Card>
+
+          {/* Small Card 2 */}
+          <Card>
+            <CardBody className="h-full pt-6">
+              <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
+                <p>
+                  The team&apos;s expertise shows. They delivered exactly what
+                  we needed. Investors were impressed!
+                </p>
+
+                <div className="grid grid-cols-[auto_1fr] gap-3">
+                  <Avatar
+                    className="size-12"
+                    src="https://i.pravatar.cc/150?u=emily"
+                  />
+                  <div>
+                    <p className="text-sm font-medium">Emily Watson</p>
+                    <span className="text-default-500 block text-sm">
+                      CEO, FinanceFlow
+                    </span>
+                  </div>
+                </div>
+              </blockquote>
+            </CardBody>
+          </Card>
+        </div>
       </div>
     </section>
   );

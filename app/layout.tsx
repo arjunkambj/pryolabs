@@ -3,9 +3,8 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "../components/shared/providers";
-import { GlitchEffect } from "../components/shared/glitch-effect";
-import { FloatingCTA } from "../components/shared/floating-cta";
 
+import { ThemeSwitch } from "@/components/shared/ThemeSwitch";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 
@@ -21,10 +20,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+  themeColor: "white",
 };
 
 export default function RootLayout({
@@ -37,14 +33,18 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-dvh text-foreground font-sans overflow-x-hidden w-full antialiased",
+          "min-h-dvh bg-background text-foreground font-sans overflow-x-hidden w-full antialiased",
           fontSans.variable,
         )}
-        style={{ backgroundColor: "#050705" }}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <GlitchEffect />
-          <FloatingCTA />
+        <Providers
+          themeProps={{
+            attribute: "class",
+            defaultTheme: "light",
+            enableSystem: false,
+          }}
+        >
+          <ThemeSwitch />
           <main>{children}</main>
         </Providers>
       </body>

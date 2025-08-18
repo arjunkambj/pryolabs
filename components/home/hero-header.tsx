@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Button } from "@heroui/react";
 import React from "react";
-import { useScroll, motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
@@ -17,36 +16,33 @@ const menuItems = [
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
-  const { scrollYProgress } = useScroll();
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      setScrolled(latest > 0.05);
-    });
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    return () => unsubscribe();
-  }, [scrollYProgress]);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header>
       <nav
-        className="fixed z-20 w-full pt-2"
+        className="fixed z-50 w-full px-2"
         data-state={menuState ? "active" : ""}
       >
         <div
           className={cn(
-            "mx-auto max-w-7xl rounded-3xl px-6 transition-all duration-300 lg:px-12",
-            scrolled && "bg-background/50 backdrop-blur-2xl",
+            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
+            isScrolled &&
+              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5",
           )}
         >
-          <motion.div
-            className={cn(
-              "relative flex flex-wrap items-center justify-between gap-6 py-3 duration-200 lg:gap-0 lg:py-6",
-              scrolled && "lg:py-4",
-            )}
-          >
-            <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+            <div className="flex w-full justify-between lg:w-auto">
               <Link
                 aria-label="home"
                 className="flex items-center space-x-2"
@@ -72,21 +68,21 @@ export const HeroHeader = () => {
                   icon="lucide:x"
                 />
               </button>
+            </div>
 
-              <div className="hidden lg:block">
-                <ul className="flex gap-8 text-sm">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        className="text-default-500 hover:text-foreground block duration-150"
-                        href={item.href}
-                      >
-                        <span>{item.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm">
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      className="text-default-500 hover:text-foreground block duration-150"
+                      href={item.href}
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-default-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
@@ -105,15 +101,39 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button as={Link} href="#" size="sm" variant="bordered">
-                  Login
+                <Button
+                  as={Link}
+                  className={cn(isScrolled && "lg:hidden")}
+                  href="#"
+                  radius="lg"
+                  size="sm"
+                  variant="bordered"
+                >
+                  <span>Login</span>
                 </Button>
-                <Button as={Link} color="primary" href="#" size="sm">
-                  Sign Up
+                <Button
+                  as={Link}
+                  className={cn(isScrolled && "lg:hidden")}
+                  color="primary"
+                  href="#"
+                  radius="lg"
+                  size="sm"
+                >
+                  <span>Sign Up</span>
+                </Button>
+                <Button
+                  as={Link}
+                  className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
+                  color="primary"
+                  href="#get-started"
+                  radius="lg"
+                  size="sm"
+                >
+                  <span>Get Started</span>
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </nav>
     </header>

@@ -51,7 +51,10 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="scroll-py-16 py-16 md:scroll-py-32 md:py-32" id="faq">
+    <section
+      className="scroll-py-16 py-16 md:scroll-py-32 md:py-32 bg-default-50"
+      id="faq"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-y-12 px-2 lg:[grid-template-columns:1fr_auto]">
           {/* Header */}

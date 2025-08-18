@@ -46,7 +46,7 @@ const pricingPlans = [
     description: "Per editor",
     features: [
       "Everything in Pro Plan",
-      "5GB Cloud Storage", 
+      "5GB Cloud Storage",
       "Email and Chat Support",
     ],
     buttonVariant: "bordered" as const,
@@ -57,7 +57,7 @@ const pricingPlans = [
 export default function Pricing() {
   return (
     <section className="py-16 md:py-32" id="pricing">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
           className="mx-auto max-w-2xl space-y-6 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export default function Pricing() {
                   Popular
                 </span>
               )}
-              
+
               <Card className="flex h-full flex-col border-none shadow-none bg-default-100">
                 <CardHeader className="pb-4">
                   <h3 className="font-medium text-lg">{plan.name}</h3>
@@ -102,16 +102,16 @@ export default function Pricing() {
 
                 <CardBody className="flex-1 space-y-4 pt-0">
                   <hr className="border-dashed border-default-300" />
-                  
+
                   <ul className="list-outside space-y-3 text-sm">
                     {plan.features.map((feature, featureIndex) => (
                       <li
                         key={featureIndex}
                         className="flex items-center gap-2"
                       >
-                        <Icon 
-                          icon="lucide:check" 
+                        <Icon
                           className="size-3 text-foreground flex-shrink-0"
+                          icon="lucide:check"
                         />
                         <span className="text-default-700">{feature}</span>
                       </li>
@@ -122,9 +122,10 @@ export default function Pricing() {
                 <CardFooter className="mt-auto pt-4">
                   <Button
                     as={Link}
-                    href="#get-started"
                     className="w-full"
                     color={plan.popular ? "primary" : "default"}
+                    href="#get-started"
+                    radius="lg"
                     variant={plan.popular ? "solid" : "bordered"}
                   >
                     Get Started

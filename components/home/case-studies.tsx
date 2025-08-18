@@ -29,7 +29,7 @@ export function CaseStudies() {
               <div className="grid grid-cols-2 gap-3 pt-6 sm:gap-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <Icon icon="carbon:lightning" className="size-4" />
+                    <Icon className="size-4" icon="carbon:lightning" />
                     <h3 className="text-sm font-medium">Fast Delivery</h3>
                   </div>
                   <p className="text-default-600 text-sm">
@@ -39,7 +39,7 @@ export function CaseStudies() {
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Icon icon="carbon:chip" className="size-4" />
+                    <Icon className="size-4" icon="carbon:chip" />
                     <h3 className="text-sm font-medium">Powerful Tech</h3>
                   </div>
                   <p className="text-default-600 text-sm">
@@ -53,11 +53,11 @@ export function CaseStudies() {
               <div className="aspect-[67/34] relative rounded-2xl bg-gradient-to-b from-default-200 to-transparent p-px">
                 <div className="rounded-[15px] bg-default-100 h-full w-full flex items-center justify-center">
                   <img
-                    src="https://placehold.co/1206x612/f8f9fa/6b7280?text=MVP+Dashboard"
-                    className="rounded-[15px] shadow"
                     alt="MVP Dashboard Illustration"
-                    width={1206}
+                    className="rounded-[15px] shadow"
                     height={612}
+                    src="https://placehold.co/1206x612/f8f9fa/6b7280?text=MVP+Dashboard"
+                    width={1206}
                   />
                 </div>
               </div>
@@ -67,7 +67,7 @@ export function CaseStudies() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 md:py-20 bg-default-50">
+      <section className="py-16 md:py-32 bg-default-50">
         <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
           <motion.div
             className="relative z-10 mx-auto max-w-xl space-y-6 text-center"

@@ -2,11 +2,10 @@
 
 import { Card, CardBody } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
 
 export function FeaturesGrid() {
   return (
-    <section className="bg-default-50 py-16 md:py-32" id="features">
+    <section className="py-16 md:py-32" id="features">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative">
           <div className="relative z-10 grid grid-cols-6 gap-3">
@@ -16,8 +15,8 @@ export function FeaturesGrid() {
                 <div className="relative flex h-24 w-56 items-center">
                   <svg
                     className="text-default-400 absolute inset-0 size-full"
-                    viewBox="0 0 254 104"
                     fill="none"
+                    viewBox="0 0 254 104"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -25,9 +24,13 @@ export function FeaturesGrid() {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="mx-auto block w-fit text-5xl font-semibold">100%</span>
+                  <span className="mx-auto block w-fit text-5xl font-semibold">
+                    100%
+                  </span>
                 </div>
-                <h2 className="mt-6 text-center text-3xl font-semibold">Customizable</h2>
+                <h2 className="mt-6 text-center text-3xl font-semibold">
+                  Customizable
+                </h2>
               </CardBody>
             </Card>
 
@@ -35,12 +38,18 @@ export function FeaturesGrid() {
             <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
               <CardBody className="pt-6">
                 <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-default-200 before:border-default-100">
-                  <Icon className="m-auto size-16 text-primary" icon="carbon:rocket" />
+                  <Icon
+                    className="m-auto size-16 text-primary"
+                    icon="carbon:rocket"
+                  />
                 </div>
                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                  <h2 className="text-lg font-medium transition">Design to Deployment</h2>
+                  <h2 className="text-lg font-medium transition">
+                    Design to Deployment
+                  </h2>
                   <p className="text-default-600">
-                    Complete MVP development from Figma designs to production deployment in just 28 days.
+                    Complete MVP development from Figma designs to production
+                    deployment in just 28 days.
                   </p>
                 </div>
               </CardBody>
@@ -52,46 +61,51 @@ export function FeaturesGrid() {
                 <div className="pt-6 lg:px-6">
                   <svg
                     className="w-full"
-                    viewBox="0 0 386 123"
                     fill="none"
+                    viewBox="0 0 386 123"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <rect width="386" height="123" rx="10" />
+                    <rect height="123" rx="10" width="386" />
                     <g clipPath="url(#clip0_0_106)">
                       <circle
                         className="text-default-400"
                         cx="29"
                         cy="29"
-                        r="15"
                         fill="currentColor"
+                        r="15"
                       />
                       <path
                         d="M29 23V35"
                         stroke="white"
-                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        strokeWidth="2"
                       />
                       <path
                         d="M35 29L29 35L23 29"
                         stroke="white"
-                        strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        strokeWidth="2"
                       />
                       <path
                         d="M55.2373 32H58.7988C61.7383 32 63.4404 30.1816 63.4404 27.0508V27.0371C63.4404 23.9404 61.7246 22.1357 58.7988 22.1357H55.2373V32ZM56.7686 30.6807V23.4551H58.6279C60.6719 23.4551 61.8818 24.7881 61.8818 27.0576V27.0713C61.8818 29.3613 60.6924 30.6807 58.6279 30.6807H56.7686Z"
                         fill="currentColor"
                       />
-                      <text x="70" y="32" fill="currentColor" className="text-sm">
+                      <text
+                        className="text-sm"
+                        fill="currentColor"
+                        x="70"
+                        y="32"
+                      >
                         Download 14.34 mbps
                       </text>
                     </g>
                     <path
-                      fillRule="evenodd"
                       clipRule="evenodd"
                       d="M3 123C3 123 14.3298 94.153 35.1282 88.0957C55.9266 82.0384 65.9333 80.5508 65.9333 80.5508C65.9333 80.5508 80.699 80.5508 92.1777 80.5508C103.656 80.5508 100.887 63.5348 109.06 63.5348C117.233 63.5348 117.217 91.9728 124.78 91.9728C132.343 91.9728 142.264 78.03 153.831 80.5508C165.398 83.0716 186.825 91.9728 193.761 91.9728C200.697 91.9728 206.296 63.5348 214.07 63.5348C221.844 63.5348 238.653 93.7771 244.234 91.9728C249.814 90.1684 258.8 60 266.19 60C272.075 60 284.1 88.057 286.678 88.0957C294.762 88.2171 300.192 72.9284 305.423 72.9284C312.323 72.9284 323.377 65.2437 335.553 63.5348C347.729 61.8259 348.218 82.07 363.639 80.5508C367.875 80.1335 372.949 82.2017 376.437 87.1008C379.446 91.3274 381.054 97.4325 382.521 104.647C383.479 109.364 382.521 123 382.521 123"
                       fill="url(#paint0_linear_0_106)"
+                      fillRule="evenodd"
                     />
                     <path
                       className="text-primary"
@@ -101,14 +115,17 @@ export function FeaturesGrid() {
                     />
                     <defs>
                       <linearGradient
+                        gradientUnits="userSpaceOnUse"
                         id="paint0_linear_0_106"
                         x1="3"
-                        y1="60"
                         x2="3"
+                        y1="60"
                         y2="123"
-                        gradientUnits="userSpaceOnUse"
                       >
-                        <stop className="text-primary/15" stopColor="currentColor" />
+                        <stop
+                          className="text-primary/15"
+                          stopColor="currentColor"
+                        />
                         <stop
                           className="text-transparent"
                           offset="1"
@@ -120,9 +137,12 @@ export function FeaturesGrid() {
                   </svg>
                 </div>
                 <div className="relative z-10 mt-14 space-y-2 text-center">
-                  <h2 className="text-lg font-medium transition">Revenue Ready</h2>
+                  <h2 className="text-lg font-medium transition">
+                    Revenue Ready
+                  </h2>
                   <p className="text-default-600">
-                    Launch with payment integration, user auth, and everything needed to start generating revenue.
+                    Launch with payment integration, user auth, and everything
+                    needed to start generating revenue.
                   </p>
                 </div>
               </CardBody>
@@ -130,35 +150,51 @@ export function FeaturesGrid() {
 
             {/* Silicon Valley Experience Card */}
             <Card className="relative col-span-full overflow-hidden lg:col-span-3">
-              <CardBody className="grid pt-6 sm:grid-cols-2">
+              <CardBody className="grid pt-6 sm:grid-cols-2 overflow-visible">
                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
                   <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-default-200 before:border-default-100">
-                    <Icon className="m-auto size-6" icon="carbon:certificate" strokeWidth={1} />
+                    <Icon
+                      className="m-auto size-6"
+                      icon="carbon:certificate"
+                      strokeWidth={1}
+                    />
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-lg font-medium transition">Silicon Valley Expertise</h2>
+                    <h2 className="text-lg font-medium transition">
+                      Silicon Valley Expertise
+                    </h2>
                     <p className="text-default-600">
-                      Built by ex-Amazon, Adobe & YC teams with proven track record of 40+ successful launches.
+                      Built by ex-Amazon, Adobe & YC teams with proven track
+                      record of 40+ successful launches.
                     </p>
                   </div>
                 </div>
-                <div className="relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-default-200 p-6 py-6 sm:ml-6 rounded-tl-xl">
+                <div className="relative -mb-6 mt-6 h-fit border-l border-t border-default-200 p-6 py-6 sm:ml-6 rounded-tl-xl">
                   <div className="absolute left-3 top-2 flex gap-1">
-                    <span className="block size-2 rounded-full border border-default-200 bg-default-100"></span>
-                    <span className="block size-2 rounded-full border border-default-200 bg-default-100"></span>
-                    <span className="block size-2 rounded-full border border-default-200 bg-default-100"></span>
+                    <span className="block size-2 rounded-full border border-default-200 bg-default-100" />
+                    <span className="block size-2 rounded-full border border-default-200 bg-default-100" />
+                    <span className="block size-2 rounded-full border border-default-200 bg-default-100" />
                   </div>
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center gap-2">
-                      <Icon icon="carbon:checkmark-filled" className="text-success" />
+                      <Icon
+                        className="text-success"
+                        icon="carbon:checkmark-filled"
+                      />
                       <span className="text-sm">Ex-Amazon Engineers</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Icon icon="carbon:checkmark-filled" className="text-success" />
+                      <Icon
+                        className="text-success"
+                        icon="carbon:checkmark-filled"
+                      />
                       <span className="text-sm">Adobe Design Team</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Icon icon="carbon:checkmark-filled" className="text-success" />
+                      <Icon
+                        className="text-success"
+                        icon="carbon:checkmark-filled"
+                      />
                       <span className="text-sm">YC Alumni</span>
                     </div>
                   </div>
@@ -168,47 +204,60 @@ export function FeaturesGrid() {
 
             {/* Non-Technical Founder Focus Card */}
             <Card className="relative col-span-full overflow-hidden lg:col-span-3">
-              <CardBody className="grid h-full pt-6 sm:grid-cols-2">
+              <CardBody className="grid h-full pt-6 sm:grid-cols-2 overflow-visible">
                 <div className="relative z-10 flex flex-col justify-between space-y-12 lg:space-y-6">
                   <div className="relative flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border border-default-200 before:border-default-100">
-                    <Icon className="m-auto size-6" icon="carbon:user-multiple" strokeWidth={1} />
+                    <Icon
+                      className="m-auto size-6"
+                      icon="carbon:user-multiple"
+                      strokeWidth={1}
+                    />
                   </div>
                   <div className="space-y-2">
-                    <h2 className="text-lg font-medium transition">Built for Non-Technical Founders</h2>
+                    <h2 className="text-lg font-medium transition">
+                      Built for Non-Technical Founders
+                    </h2>
                     <p className="text-default-600">
-                      We handle all technical aspects while keeping you involved in key decisions. No coding required.
+                      We handle all technical aspects while keeping you involved
+                      in key decisions. No coding required.
                     </p>
                   </div>
                 </div>
-                <div className="before:bg-default-200 relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px sm:-my-6 sm:-mr-6">
+                <div className="before:bg-default-200 relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px sm:-my-6">
                   <div className="relative flex h-full flex-col justify-center space-y-6 py-6">
                     <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">Sarah M.</span>
+                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">
+                        Sarah M.
+                      </span>
                       <div className="ring-background size-7 ring-4">
                         <img
+                          alt=""
                           className="size-full rounded-full"
                           src="https://i.pravatar.cc/150?u=founder1"
-                          alt=""
                         />
                       </div>
                     </div>
                     <div className="relative ml-[calc(50%-1rem)] flex items-center gap-2">
                       <div className="ring-background size-8 ring-4">
                         <img
+                          alt=""
                           className="size-full rounded-full"
                           src="https://i.pravatar.cc/150?u=founder2"
-                          alt=""
                         />
                       </div>
-                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">David C.</span>
+                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">
+                        David C.
+                      </span>
                     </div>
                     <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">Maria R.</span>
+                      <span className="block h-fit rounded border border-default-200 px-2 py-1 text-xs shadow-sm">
+                        Maria R.
+                      </span>
                       <div className="ring-background size-7 ring-4">
                         <img
+                          alt=""
                           className="size-full rounded-full"
                           src="https://i.pravatar.cc/150?u=founder3"
-                          alt=""
                         />
                       </div>
                     </div>

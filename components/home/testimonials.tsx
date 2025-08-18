@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export function Testimonials() {
   return (
-    <section className="py-16 md:py-32" id="testimonials">
-      <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
+    <section className="py-16 md:py-32 bg-default-50" id="testimonials">
+      <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
         {/* Header */}
         <motion.div
           className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12"

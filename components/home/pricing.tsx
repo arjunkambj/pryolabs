@@ -13,7 +13,7 @@ const pkgs = [
     delivery: "21 days",
     guarantee: "100% money-back",
     features: [
-      "Design in Figma",
+      "1 Core functionality",
       "Frontend + Backend",
       "Database & Auth",
       "Payments & Analytics",
